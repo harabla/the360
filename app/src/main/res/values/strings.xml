@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">The360</string>
+
+    // Front page
+
+    <string name="welcomeText">Hjellooo juutuub!</string>
+
+    //// Putting
+    <string name="frontPagePuttingHeader">Putting</string>
+    <string name="frontPageJyly">Jyly</string>
+    <string name="frontPageMaxPutts">Max Putts</string>
+
+    //// Driving
+    <string name="frontPageDrivingHeader">Driving</string>
+    <string name="frontPageDrivingAccuracy">Accuracy</string>
+    <string name="frontPageDrivingDistance">Distance</string>
+    <string name="frontPageDrivingSpeed">Speed</string>
+
+    //// Rounds
+    <string name="frontPageRoundsHeader">Round stuff</string>
+    <string name="frontPageITB">In the Bag</string>
+    <string name="frontPageRoundSummary">Round Summary</string>
+
 </resources>
