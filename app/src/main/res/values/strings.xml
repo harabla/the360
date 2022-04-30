@@ -38,6 +38,21 @@
     <string name="radioselect9m">9m</string>
     <string name="radioselect10m">10m</string>
 
+    <string name="radioselectindoors">Indoors</string>
+    <string name="radioselectoutdoors">Outdoors</string>
+
+    <string name="mpWindNone">None</string>
+    <string name="mpWindLow">Low</string>
+    <string name="mpWindMid">Medium</string>
+    <string name="mpWindHigh">High</string>
+
+    <string name="mpWindDirectFront">Front</string>
+    <string name="mpWindRight">Right</string>
+    <string name="mpWindBehind">Behind</string>
+    <string name="mpWindLeft">Left</string>
+    <string name="mpWindFrontBackNone">None</string>
+    <string name="mpWindLeftRightNone">None</string>
+
 
     <string name="mpNewRound">New round</string>
     <string name="mpSaveExit">Save and Exit</string>
