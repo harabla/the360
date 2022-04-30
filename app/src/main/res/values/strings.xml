@@ -21,4 +21,27 @@
     <string name="frontPageITB">In the Bag</string>
     <string name="frontPageRoundSummary">Round Summary</string>
 
+
+    //upcoming
+    <string name="shortterm">Hold ya horses! Its coming its coming</string>
+    <string name="midterm">yeah yeah working on it...</string>
+    <string name="longterm">Its... yeah we have an idea. That is about it</string>
+
+
+
+    ////maxputts strings
+    <string name="radioselect4m">4m</string>
+    <string name="radioselect5m">5m</string>
+    <string name="radioselect6m">6m</string>
+    <string name="radioselect7m">7m</string>
+    <string name="radioselect8m">8m</string>
+    <string name="radioselect9m">9m</string>
+    <string name="radioselect10m">10m</string>
+
+
+    <string name="mpNewRound">New round</string>
+    <string name="mpSaveExit">Save and Exit</string>
+    <string name="mpExit">Exit</string>
+
+
 </resources>
