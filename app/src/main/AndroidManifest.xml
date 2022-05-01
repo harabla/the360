@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.The360">
         <activity
+            android:name=".JylySettings"
+            android:exported="false" />
+        <activity
             android:name=".maxPuttsSettings"
             android:exported="false" />
         <activity

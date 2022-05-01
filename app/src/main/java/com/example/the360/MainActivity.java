@@ -47,7 +47,8 @@ public class MainActivity extends AppCompatActivity {
         jylySelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),R.string.shortterm,Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this,JylySettings.class);
+                startActivity(intent);
             }
         });
 
