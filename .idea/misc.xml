@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/circle.xml" value="0.2085" />
+        <entry key="app/src/main/res/layout/activity_jyly_settings.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22552083333333334" />
         <entry key="app/src/main/res/layout/activity_max_putts_settings.xml" value="0.165" />
       </map>
