@@ -26,6 +26,20 @@ public class maxPuttsSettings extends AppCompatActivity {
         Button mpExit = findViewById(R.id.mpExit);
 
         RadioGroup radioGroupLocation = (RadioGroup) findViewById(R.id.puttLocation);
+        RadioGroup radioGroupWindSelectWindSpeed = (RadioGroup) findViewById(R.id.windSpeed);
+        RadioGroup radioGroupWindSelectFrontBack = (RadioGroup) findViewById(R.id.windDirectionFrontBack);
+        RadioGroup radioGroupWindSelectLeftRight = (RadioGroup) findViewById(R.id.windDirectionLeftRight);
+
+        //lets hide the radiogroups we dont need initially
+
+        radioGroupWindSelectFrontBack.setVisibility(View.INVISIBLE);
+        radioGroupWindSelectLeftRight.setVisibility(View.INVISIBLE);
+        radioGroupWindSelectWindSpeed.setVisibility(View.INVISIBLE);
+
+
+        //lets give default checked states for radio buttons
+
+
 
         //What do those buttons do
 
@@ -63,25 +77,52 @@ public class maxPuttsSettings extends AppCompatActivity {
                 View checked = radioGroup.findViewById(checkedId);
                 int index = radioGroup.indexOfChild(checked);
 
-                RadioGroup windSelectWindSpeed = (RadioGroup) findViewById(R.id.windSpeed);
-                RadioGroup windSelectFrontBack = (RadioGroup) findViewById(R.id.windDirectionFrontBack);
-                RadioGroup windSelectLeftRight = (RadioGroup) findViewById(R.id.windDirectionLeftRight);
+
 
                 switch (index) {
                     case 0: //indoors
                           Toast.makeText(getApplicationContext(), "Selected button number " + index, 500).show();
-                          windSelectWindSpeed.setVisibility(View.INVISIBLE);
+                          radioGroupWindSelectWindSpeed.setVisibility(View.INVISIBLE);
+                          radioGroupWindSelectFrontBack.setVisibility(View.INVISIBLE);
+                          radioGroupWindSelectLeftRight.setVisibility(View.INVISIBLE);
 
                           break;
                     case 1: // outdoors
                                        
                          Toast.makeText(getApplicationContext(), "Selected button number " + index, 500).show();
-                         windSelectWindSpeed.setVisibility(View.VISIBLE);
+                         radioGroupWindSelectWindSpeed.setVisibility(View.VISIBLE);
                          break;
 
                }
             }
         });
+
+        //wind direction only if wind speed =! none
+        radioGroupWindSelectWindSpeed.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                View checked = radioGroup.findViewById(i);
+                int index = radioGroup.indexOfChild(checked);
+
+                switch (index) {
+                    case 0:
+                        Toast.makeText(getApplicationContext(), "Selected button number " + index, 500).show();
+                        radioGroupWindSelectFrontBack.setVisibility(View.INVISIBLE);
+                        radioGroupWindSelectLeftRight.setVisibility(View.INVISIBLE);
+
+                        break;
+                    case 1:
+                    case 2:
+                    case 3:
+                        Toast.makeText(getApplicationContext(), "Selected button number " + index, 500).show();
+                        radioGroupWindSelectFrontBack.setVisibility(View.VISIBLE);
+                        radioGroupWindSelectLeftRight.setVisibility(View.VISIBLE);
+
+                        break;
+                }
+            }
+        });
+
 
     }
 }
