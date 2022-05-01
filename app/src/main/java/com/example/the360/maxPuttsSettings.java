@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class maxPuttsSettings extends AppCompatActivity {
@@ -21,6 +24,8 @@ public class maxPuttsSettings extends AppCompatActivity {
         Button mpNewRound = findViewById(R.id.mpNewRound);
         Button mpSaveExit = findViewById(R.id.mpFinishExit);
         Button mpExit = findViewById(R.id.mpExit);
+
+        RadioGroup radioGroupLocation = (RadioGroup) findViewById(R.id.puttLocation);
 
         //What do those buttons do
 
@@ -48,6 +53,33 @@ public class maxPuttsSettings extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"This should simply exit to the front page",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(maxPuttsSettings.this,MainActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        //wind only asked if outside
+        radioGroupLocation.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
+                View checked = radioGroup.findViewById(checkedId);
+                int index = radioGroup.indexOfChild(checked);
+
+                RadioGroup windSelectWindSpeed = (RadioGroup) findViewById(R.id.windSpeed);
+                RadioGroup windSelectFrontBack = (RadioGroup) findViewById(R.id.windDirectionFrontBack);
+                RadioGroup windSelectLeftRight = (RadioGroup) findViewById(R.id.windDirectionLeftRight);
+
+                switch (index) {
+                    case 0: //indoors
+                          Toast.makeText(getApplicationContext(), "Selected button number " + index, 500).show();
+                          windSelectWindSpeed.setVisibility(View.INVISIBLE);
+
+                          break;
+                    case 1: // outdoors
+                                       
+                         Toast.makeText(getApplicationContext(), "Selected button number " + index, 500).show();
+                         windSelectWindSpeed.setVisibility(View.VISIBLE);
+                         break;
+
+               }
             }
         });
 

@@ -52,7 +52,6 @@
         android:id="@+id/windDirectionLeftRight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
         android:orientation="horizontal"
         android:padding="2dp"
         app:layout_constraintBottom_toTopOf="@+id/windSpeed"
