@@ -36,6 +36,7 @@ public class RegistrationActivity extends AppCompatActivity {
         submit = findViewById(R.id.btnregister);
         progressBar = findViewById(R.id.progressbar);
 
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
