@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "819181268893",
+    "firebase_url": "https://the360-70adc-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "the360-70adc",
     "storage_bucket": "the360-70adc.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "819181268893-cabqv6r2qd9l60ostmsq5udlae8j4uhr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.the360",
+            "certificate_hash": "facb78aa4adbc3ea2ee65ae83029c5ae44b7c01d"
+          }
+        },
         {
           "client_id": "819181268893-h6mg7uu2cq0oobeat8kkslmtfsdlakoc.apps.googleusercontent.com",
           "client_type": 3

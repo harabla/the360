@@ -18,7 +18,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         //list buttons
+
+        Button login, register;
+        login = findViewById(R.id.Login);
+        register = findViewById(R.id.Register);
 
         //Putting
         Button maxPuttsSelect = findViewById(R.id.maxputts);
@@ -87,8 +93,31 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(),R.string.shortterm,Toast.LENGTH_SHORT).show();
+
+                // Intent intent = new Intent(MainActivity.this,)
+            }
+        });
+
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(),R.string.shortterm,Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(MainActivity.this, RegistrationActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
 
     }
+
+
+
 }
 
 // this is a change
