@@ -125,8 +125,9 @@ public class maxPuttsSettings extends AppCompatActivity {
 
 
                 databaseReference.child("totals").child(uid).child("total putts").setValue(ServerValue.increment(finalscore+1));
-
                 score.getText().clear();
+
+
 
                 Toast.makeText(getApplicationContext(),"This should save data to firebase & clear putt count - other settings to stay the same",Toast.LENGTH_SHORT).show();
 
@@ -350,6 +351,11 @@ public class maxPuttsSettings extends AppCompatActivity {
                 }
             }
         });
+
+        //public getRecord(String distance) {
+
+
+        //}
 
 
 

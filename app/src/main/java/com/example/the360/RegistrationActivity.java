@@ -22,6 +22,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.IgnoreExtraProperties;
 import com.google.firebase.database.ServerValue;
 
+import java.util.HashMap;
+
 public class RegistrationActivity extends AppCompatActivity {
 
     private EditText emailTextView, passwordTextView, pdganumber, firstname;
@@ -95,6 +97,14 @@ public class RegistrationActivity extends AppCompatActivity {
                             int baseValue = 0;
                             databaseReference.child("totals").child(uid).child("total putts").setValue(ServerValue.increment(baseValue));
 
+
+                            String strEmail = email.toString();
+                            String strPDGAnumber = pdganumber.getText().toString();
+                            String strFirstname = firstname.getText().toString();
+
+                            createBaseUserData(strEmail,strPDGAnumber,strFirstname);
+                            createBaseRecordData(uid);
+
                             // hide the progress bar
                             progressBar.setVisibility(View.GONE);
 
@@ -121,5 +131,48 @@ public class RegistrationActivity extends AppCompatActivity {
 
     }
 
+    public void createBaseUserData(String email, String pdgaNumber, String firstName){
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+        /**String pdganumberText = findViewById(R.id.pdgaNumber).toString();
+        String firstnameText = findViewById(R.id.firstName).toString();
+        String email = findViewById(R.id.email).toString();*/
+
+        HashMap<String , Object> map = new HashMap<>();
+        map.put("PDGA number", pdgaNumber);
+        map.put("First name", firstName);
+        map.put("Email", email);
+
+        databaseReference.child("user Data").child(uid).updateChildren(map);
+    }
+
+    public void createBaseRecordData(String uid){
+
+
+        int mpRecord4m = 0;
+        int mpRecord5m = 0;
+        int mpRecord6m = 0;
+        int mpRecord7m = 0;
+        int mpRecord8m = 0;
+        int mpRecord9m = 0;
+        int mpRecord10m = 0;
+
+        HashMap<String , Object> map = new HashMap<>();
+        map.put("4", mpRecord4m);
+        map.put("5", mpRecord5m);
+        map.put("6", mpRecord6m);
+        map.put("7", mpRecord7m);
+        map.put("8", mpRecord8m);
+        map.put("9", mpRecord9m);
+        map.put("10", mpRecord10m);
+
+
+
+        databaseReference.child("Records").child(uid).updateChildren(map);
+    }
+
 }
+
 

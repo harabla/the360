@@ -306,6 +306,7 @@
         android:layout_marginTop="24dp"
         android:ems="10"
         android:inputType="number"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/maxPuttsDistance" />
@@ -349,5 +350,14 @@
             android:textColor="#FFFFFF"
             android:layout_margin="5dp" />
     </TableRow>
+
+    <TextView
+        android:id="@+id/recordText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/maxPuttsmade" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
