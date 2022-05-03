@@ -26,6 +26,12 @@ public class MainActivity extends AppCompatActivity {
 
         getUserProfile();
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+        Toast.makeText(getApplicationContext(),uid,Toast.LENGTH_SHORT).show();
+
+
         //list buttons
         TextView mainHeader;
 
@@ -144,6 +150,8 @@ public class MainActivity extends AppCompatActivity {
 
             TextView welcomeText = (TextView) findViewById(R.id.mainHeader);
             welcomeText.setText("Welcome "+ email + name);
+
+            //String uid = user.getUid();
 
             Button login = (Button) findViewById(R.id.Login);
             Button register = (Button) findViewById(R.id.Register);

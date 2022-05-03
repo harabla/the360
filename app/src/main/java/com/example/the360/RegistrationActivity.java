@@ -16,23 +16,31 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.IgnoreExtraProperties;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    private EditText emailTextView, passwordTextView;
+    private EditText emailTextView, passwordTextView, pdganumber, firstname;
     private Button submit;
     private ProgressBar progressBar;
     private FirebaseAuth mAuth;
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
+        databaseReference = FirebaseDatabase.getInstance("https://the360-70adc-default-rtdb.europe-west1.firebasedatabase.app/").getReference();
         mAuth = FirebaseAuth.getInstance();
 
         emailTextView = findViewById(R.id.email);
         passwordTextView = findViewById(R.id.passwd);
+        pdganumber = findViewById(R.id.pdgaNumber);
+        firstname = findViewById(R.id.firstName);
         submit = findViewById(R.id.btnregister);
         progressBar = findViewById(R.id.progressbar);
 
@@ -106,4 +114,6 @@ public class RegistrationActivity extends AppCompatActivity {
                 });
 
     }
+
 }
+
