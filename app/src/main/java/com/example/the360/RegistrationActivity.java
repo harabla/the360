@@ -20,6 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.IgnoreExtraProperties;
+import com.google.firebase.database.ServerValue;
 
 public class RegistrationActivity extends AppCompatActivity {
 
@@ -88,6 +89,11 @@ public class RegistrationActivity extends AppCompatActivity {
                                     "Registration successful!",
                                     Toast.LENGTH_LONG)
                                     .show();
+
+                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                            String uid = user.getUid();
+                            int baseValue = 0;
+                            databaseReference.child("totals").child(uid).child("total putts").setValue(ServerValue.increment(baseValue));
 
                             // hide the progress bar
                             progressBar.setVisibility(View.GONE);

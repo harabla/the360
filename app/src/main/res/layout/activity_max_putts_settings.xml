@@ -6,93 +6,60 @@
     android:layout_height="match_parent"
     tools:context=".maxPuttsSettings">
 
-    <RadioGroup
-        android:id="@+id/windDirectionFrontBack"
+    <TextView
+        android:id="@+id/puttLocationText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/puttLocationText"
+        app:layout_constraintBottom_toTopOf="@+id/puttLocation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/puttLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:orientation="horizontal"
-        android:padding="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/windSpeed">
-
+        app:layout_constraintTop_toTopOf="parent">
 
         <RadioButton
-            android:id="@+id/mpWindDirectFront"
+            android:id="@+id/mpIndoors"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:button="@null"
             android:drawableBottom="?android:attr/listChoiceIndicatorSingle"
             android:gravity="center_horizontal|bottom"
-            android:text="@string/mpWindDirectFront" />
+            android:text="@string/radioselectindoors" />
 
         <RadioButton
-            android:id="@+id/mpWindFrontBackNone"
+            android:id="@+id/mpOutdoors"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:button="@null"
             android:drawableBottom="?android:attr/listChoiceIndicatorSingle"
             android:gravity="center_horizontal|bottom"
-            android:text="@string/mpWindFrontBackNone" />
-
-        <RadioButton
-            android:id="@+id/mpWindBack"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:button="@null"
-            android:drawableBottom="?android:attr/listChoiceIndicatorSingle"
-            android:gravity="center_horizontal|bottom"
-            android:text="@string/mpWindBehind" />
-
+            android:text="@string/radioselectoutdoors" />
 
     </RadioGroup>
 
-
-    <RadioGroup
-        android:id="@+id/windDirectionLeftRight"
+    <TextView
+        android:id="@+id/windSpeedText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="2dp"
+        android:layout_weight="1"
+        android:text="@string/windSpeedText2"
+        app:layout_constraintBottom_toTopOf="@+id/windSpeed"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/windDirectionFrontBack">
-
-
-        <RadioButton
-            android:id="@+id/mpWindLeft"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:button="@null"
-            android:drawableBottom="?android:attr/listChoiceIndicatorSingle"
-            android:gravity="center_horizontal|bottom"
-            android:text="@string/mpWindLeft" />
-
-        <RadioButton
-            android:id="@+id/mpWindLeftRightNone"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:button="@null"
-            android:drawableBottom="?android:attr/listChoiceIndicatorSingle"
-            android:gravity="center_horizontal|bottom"
-            android:text="@string/mpWindLeftRightNone" />
-
-        <RadioButton
-            android:id="@+id/mpWindRight"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:button="@null"
-            android:drawableBottom="?android:attr/listChoiceIndicatorSingle"
-            android:gravity="center_horizontal|bottom"
-            android:text="@string/mpWindRight" />
-
-    </RadioGroup>
-
+        app:layout_constraintStart_toStartOf="parent" />
 
     <RadioGroup
         android:id="@+id/windSpeed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -135,33 +102,117 @@
             android:text="@string/mpWindHigh" />
     </RadioGroup>
 
-    <RadioGroup
-        android:id="@+id/puttLocation"
+    <TextView
+        android:id="@+id/windFrontBackText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/windFrontBackText"
+        app:layout_constraintBottom_toTopOf="@+id/windDirectionFrontBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/windDirectionFrontBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:orientation="horizontal"
+        android:padding="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/windSpeed">
+
 
         <RadioButton
-            android:id="@+id/mpIndoors"
+            android:id="@+id/mpWindDirectFront"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:button="@null"
             android:drawableBottom="?android:attr/listChoiceIndicatorSingle"
             android:gravity="center_horizontal|bottom"
-            android:text="@string/radioselectindoors" />
+            android:text="@string/mpWindDirectFront" />
 
         <RadioButton
-            android:id="@+id/mpOutdoors"
+            android:id="@+id/mpWindFrontBackNone"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:button="@null"
             android:drawableBottom="?android:attr/listChoiceIndicatorSingle"
             android:gravity="center_horizontal|bottom"
-            android:text="@string/radioselectoutdoors" />
+            android:text="@string/mpWindFrontBackNone" />
+
+        <RadioButton
+            android:id="@+id/mpWindBack"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableBottom="?android:attr/listChoiceIndicatorSingle"
+            android:gravity="center_horizontal|bottom"
+            android:text="@string/mpWindBehind" />
+
+
     </RadioGroup>
+
+
+    <TextView
+        android:id="@+id/windLeftRightText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/windLeftRightText"
+        app:layout_constraintBottom_toTopOf="@+id/windDirectionLeftRight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/windDirectionLeftRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="horizontal"
+        android:padding="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/windDirectionFrontBack">
+
+
+        <RadioButton
+            android:id="@+id/mpWindLeft"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableBottom="?android:attr/listChoiceIndicatorSingle"
+            android:gravity="center_horizontal|bottom"
+            android:text="@string/mpWindLeft" />
+
+        <RadioButton
+            android:id="@+id/mpWindLeftRightNone"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableBottom="?android:attr/listChoiceIndicatorSingle"
+            android:gravity="center_horizontal|bottom"
+            android:text="@string/mpWindLeftRightNone" />
+
+        <RadioButton
+            android:id="@+id/mpWindRight"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableBottom="?android:attr/listChoiceIndicatorSingle"
+            android:gravity="center_horizontal|bottom"
+            android:text="@string/mpWindRight" />
+
+    </RadioGroup>
+
+
+    <TextView
+        android:id="@+id/puttingDistanceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/puttDistanceText"
+        app:layout_constraintBottom_toTopOf="@+id/maxPuttsDistance"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <RadioGroup
         android:id="@+id/maxPuttsDistance"
@@ -238,6 +289,15 @@
             android:text="@string/radioselect10m" />
 
     </RadioGroup>
+
+    <TextView
+        android:id="@+id/scoreText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/scoreText"
+        app:layout_constraintBottom_toTopOf="@+id/maxPuttsmade"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/maxPuttsmade"

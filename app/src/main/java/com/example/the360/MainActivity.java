@@ -1,5 +1,6 @@
 package com.example.the360;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,28 +13,38 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
+
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button maxPuttsSelect;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        firebaseDatabase = FirebaseDatabase.getInstance("https://the360-70adc-default-rtdb.europe-west1.firebasedatabase.app/");
+        databaseReference = firebaseDatabase.getReference();
         getUserProfile();
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
-
-        Toast.makeText(getApplicationContext(),uid,Toast.LENGTH_SHORT).show();
+        if (user != null) {
+            String uid = user.getUid();
+        }
 
 
         //list buttons
-        TextView mainHeader;
+        TextView mainHeader, puttsMade;
 
         Button login, register, logout;
         login = findViewById(R.id.Login);
@@ -137,9 +148,37 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+}
+
+
+    private void getData() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                String uid = user.getUid();
+
+                Map<String, Object> totalsData = (Map<String, Object>) snapshot.child("totals").child(uid).getValue();
+                String putts = totalsData.get("total putts").toString();
+
+                TextView welcomeText = (TextView) findViewById(R.id.puttsMade);
+                welcomeText.setText("Putts made "+ putts);
+
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(MainActivity.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
     }
+
 
     public void getUserProfile() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -148,8 +187,8 @@ public class MainActivity extends AppCompatActivity {
             email = user.getEmail();
             name = user.getDisplayName();
 
-            TextView welcomeText = (TextView) findViewById(R.id.mainHeader);
-            welcomeText.setText("Welcome "+ email + name);
+            //TextView welcomeText = (TextView) findViewById(R.id.mainHeader);
+            //welcomeText.setText("Welcome "+ email + name);
 
             //String uid = user.getUid();
 
@@ -157,6 +196,8 @@ public class MainActivity extends AppCompatActivity {
             Button register = (Button) findViewById(R.id.Register);
             login.setVisibility(View.INVISIBLE);
             register.setVisibility(View.INVISIBLE);
+
+            getData();
 
 
         } else {

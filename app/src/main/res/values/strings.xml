@@ -11,6 +11,12 @@
     <string name="frontPagePuttingHeader">Putting</string>
     <string name="frontPageJyly">Jyly</string>
     <string name="frontPageMaxPutts">Max Putts</string>
+    <string name="puttLocationText">Putt Location</string>
+    <string name="windSpeedText2">Wind Speed</string>
+    <string name="windFrontBackText">Wind (Front/Back)</string>
+    <string name="windLeftRightText">Wind (Left/Right)</string>
+    <string name="scoreText">Amount made</string>
+    <string name="puttDistanceText">Putting Distance</string>
 
     //// Driving
     <string name="frontPageDrivingHeader">Driving</string>

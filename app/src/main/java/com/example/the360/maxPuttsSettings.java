@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,6 +23,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 
 import org.w3c.dom.Document;
 
@@ -32,6 +34,7 @@ public class maxPuttsSettings extends AppCompatActivity {
     DatabaseReference databaseReference;
     Integer puttDistance;
     String location, windSpeed, windFrontBehind, windLeftRight;
+    TextView puttLocationHeader, windSpeedHeader, windFrontBackHeader, windLeftRightHeader, puttingDistanceHeader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,12 @@ public class maxPuttsSettings extends AppCompatActivity {
         Button mpExit = findViewById(R.id.mpExit);
 
         EditText score = findViewById(R.id.maxPuttsmade);
+
+        puttLocationHeader = findViewById(R.id.puttLocationText);
+        windSpeedHeader = findViewById(R.id.windSpeedText);
+        windFrontBackHeader = findViewById(R.id.windFrontBackText);
+        windLeftRightHeader = findViewById(R.id.windLeftRightText);
+        puttingDistanceHeader = findViewById(R.id.puttingDistanceText);
 
         RadioGroup radioGroupLocation = (RadioGroup) findViewById(R.id.puttLocation);
         RadioGroup radioGroupWindSelectWindSpeed = (RadioGroup) findViewById(R.id.windSpeed);
@@ -73,6 +82,10 @@ public class maxPuttsSettings extends AppCompatActivity {
         radioGroupWindSelectFrontBack.setVisibility(View.INVISIBLE);
         radioGroupWindSelectLeftRight.setVisibility(View.INVISIBLE);
         radioGroupWindSelectWindSpeed.setVisibility(View.INVISIBLE);
+        windSpeedHeader.setVisibility(View.INVISIBLE);
+        windFrontBackHeader.setVisibility(View.INVISIBLE);
+        windLeftRightHeader.setVisibility(View.INVISIBLE);
+
 
 
         //lets give default checked states for radio buttons
@@ -101,6 +114,7 @@ public class maxPuttsSettings extends AppCompatActivity {
 
                 HashMap<String , Object> map = new HashMap<>();
                 map.put("Score", finalscore);
+                map.put("Putts total", finalscore+1);
                 map.put("Distance", puttDistance);
                 map.put("Wind Speed", windSpeed);
                 map.put("Location", location);
@@ -109,6 +123,10 @@ public class maxPuttsSettings extends AppCompatActivity {
 
                 databaseReference.child("Max Putts").child(uid).child(ts).updateChildren(map);
 
+
+                databaseReference.child("totals").child(uid).child("total putts").setValue(ServerValue.increment(finalscore+1));
+
+                score.getText().clear();
 
                 Toast.makeText(getApplicationContext(),"This should save data to firebase & clear putt count - other settings to stay the same",Toast.LENGTH_SHORT).show();
 
@@ -178,6 +196,9 @@ public class maxPuttsSettings extends AppCompatActivity {
                           radioGroupWindSelectWindSpeed.setVisibility(View.INVISIBLE);
                           radioGroupWindSelectFrontBack.setVisibility(View.INVISIBLE);
                           radioGroupWindSelectLeftRight.setVisibility(View.INVISIBLE);
+                          windSpeedHeader.setVisibility(View.INVISIBLE);
+                          windFrontBackHeader.setVisibility(View.INVISIBLE);
+                          windLeftRightHeader.setVisibility(View.INVISIBLE);
 
                           radioButtonWindFrontBackNone.setChecked(true);
                           radioButtonWindLeftRightNone.setChecked(true);
@@ -191,6 +212,7 @@ public class maxPuttsSettings extends AppCompatActivity {
                                        
                          Toast.makeText(getApplicationContext(), "Selected button number " + index, 500).show();
                          radioGroupWindSelectWindSpeed.setVisibility(View.VISIBLE);
+                        windSpeedHeader.setVisibility(View.VISIBLE);
 
                          location = "Outdoors";
                          break;
@@ -212,6 +234,9 @@ public class maxPuttsSettings extends AppCompatActivity {
                         radioGroupWindSelectFrontBack.setVisibility(View.INVISIBLE);
                         radioGroupWindSelectLeftRight.setVisibility(View.INVISIBLE);
 
+                        windFrontBackHeader.setVisibility(View.INVISIBLE);
+                        windLeftRightHeader.setVisibility(View.INVISIBLE);
+
 
                         radioButtonWindFrontBackNone.setChecked(true);
                         radioButtonWindLeftRightNone.setChecked(true);
@@ -223,13 +248,18 @@ public class maxPuttsSettings extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Selected button number " + index, 500).show();
                         radioGroupWindSelectFrontBack.setVisibility(View.VISIBLE);
                         radioGroupWindSelectLeftRight.setVisibility(View.VISIBLE);
+                        windFrontBackHeader.setVisibility(View.VISIBLE);
+                        windLeftRightHeader.setVisibility(View.VISIBLE);
                         windSpeed = "Low";
                         break;
 
                     case 2:
                         Toast.makeText(getApplicationContext(), "Selected button number " + index, 500).show();
-                        radioGroupWindSelectFrontBack.setVisibility(View.VISIBLE);
-                        radioGroupWindSelectLeftRight.setVisibility(View.VISIBLE);
+                        windFrontBackHeader.setVisibility(View.VISIBLE);
+                        windLeftRightHeader.setVisibility(View.VISIBLE);
+
+                        windFrontBackHeader.setVisibility(View.VISIBLE);
+                        windLeftRightHeader.setVisibility(View.VISIBLE);
                         windSpeed = "Medium";
                         break;
 
@@ -237,6 +267,9 @@ public class maxPuttsSettings extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Selected button number " + index, 500).show();
                         radioGroupWindSelectFrontBack.setVisibility(View.VISIBLE);
                         radioGroupWindSelectLeftRight.setVisibility(View.VISIBLE);
+
+                        windFrontBackHeader.setVisibility(View.VISIBLE);
+                        windLeftRightHeader.setVisibility(View.VISIBLE);
                         windSpeed = "High";
                         break;
                 }
