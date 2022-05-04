@@ -30,6 +30,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Document;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -134,6 +135,19 @@ public class maxPuttsSettings extends AppCompatActivity {
                 String strPuttDistance = puttDistance.toString();
                 String strPuttDistanceM = strPuttDistance + "m";
                 updateRecord(strPuttDistanceM, finalscore);
+
+
+
+                databaseReference.child("user Data").child(uid).child("Last time played").setValue(ts);
+
+                final Calendar today = Calendar.getInstance();
+                String yearToday = Integer.toString(today.get(Calendar.YEAR));
+                String monthToday = Integer.toString(today.get(Calendar.MONTH));
+                String dayToday = Integer.toString(today.get(Calendar.DATE));
+
+                databaseReference.child("totals").child(uid).child("putt totals per day").child(dayToday + "-" + monthToday + "-" + yearToday).setValue(ServerValue.increment(finalscore+1));
+
+
 
 
 

@@ -21,6 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
 
+import java.util.Calendar;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
@@ -37,14 +38,19 @@ public class MainActivity extends AppCompatActivity {
         databaseReference = firebaseDatabase.getReference();
         getUserProfile();
 
+
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             String uid = user.getUid();
+            fillInHeader(uid);
         }
 
 
         //list buttons
-        TextView mainHeader, puttsMade;
+
+
+
 
         Button login, register, logout;
         login = findViewById(R.id.Login);
@@ -151,33 +157,7 @@ public class MainActivity extends AppCompatActivity {
 }
 
 
-    private void getData() {
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                String uid = user.getUid();
-
-                Map<String, Object> totalsData = (Map<String, Object>) snapshot.child("totals").child(uid).getValue();
-                String putts = totalsData.get("total putts").toString();
-
-                TextView welcomeText = (TextView) findViewById(R.id.puttsMade);
-                welcomeText.setText("Putts made "+ putts);
-
-
-
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(MainActivity.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-    }
 
 
     public void getUserProfile() {
@@ -217,6 +197,121 @@ public class MainActivity extends AppCompatActivity {
         login.setVisibility(View.VISIBLE);
         register.setVisibility(View.VISIBLE);
         logout.setVisibility(View.INVISIBLE);
+
+    }
+
+    public void fillInHeader(String uid){
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+
+                TextView totalTries, leftTillTodaysGoal, daysSinceLast, totalPutts;
+
+                totalTries = findViewById(R.id.totalTries);
+                leftTillTodaysGoal = findViewById(R.id.leftTillTodaysGoal);
+                daysSinceLast = findViewById(R.id.daysSinceLast);
+                totalPutts = findViewById(R.id.totalPutts);
+
+                ///total tries first
+                Map<String, Object> totalsData = (Map<String, Object>) snapshot.child("totals").child(uid).getValue();
+                String putts = totalsData.get("total putts").toString();
+                totalPutts.setText(putts);
+
+                //days since last
+                Map<String, Object> userData = (Map<String, Object>) snapshot.child("user Data").child(uid).getValue();
+                String lastTimePlayedTime = userData.get("Last time played").toString();
+                Long time = System.currentTimeMillis()/1000;
+
+                long longLastTimeplayed = Long.parseLong(lastTimePlayedTime);
+                long diff = time - longLastTimeplayed;
+                long seconds = diff / 1000;
+                long minutes = seconds / 60;
+                long hours = minutes / 60;
+                long days = (hours / 24);
+
+
+                String strDays = String.valueOf(days);
+                int intDays = (int) days;
+
+                if (intDays < 1) {
+                    daysSinceLast.setText("Today");
+                } else {
+                    daysSinceLast.setText(strDays + " days ago");
+                }
+
+                //to the 100t putts this year
+                final Calendar today = Calendar.getInstance();
+
+                Integer daysLeft = 365 - today.get(Calendar.DAY_OF_YEAR);
+                String strDaysLeft = Integer.toString(daysLeft);
+
+                final Calendar todayFilter = Calendar.getInstance();
+                String yearToday = Integer.toString(todayFilter.get(Calendar.YEAR));
+                String monthToday = Integer.toString(today.get(Calendar.MONTH));
+                String dayToday = Integer.toString(today.get(Calendar.DATE));
+
+                String todaysDateRightFormat = dayToday + "-" + monthToday + "-" + yearToday;
+
+
+
+                Map<String, Object> totalsDataDates = (Map<String, Object>) snapshot.child("totals").child(uid).child("putt totals per day").getValue();
+                String puttsToday = totalsDataDates.get(todaysDateRightFormat).toString();
+
+                int intPuttsToday = Integer.valueOf(puttsToday);
+
+                int intPutts = Integer.parseInt(putts);
+                int toGoal = ((100000 - intPutts) / daysLeft) - intPuttsToday;
+
+                String strToGoal = Integer.toString(toGoal);
+
+
+                leftTillTodaysGoal.setText(strToGoal);
+
+
+                totalTries.setText(strDaysLeft);
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(MainActivity.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+    }
+
+
+    private void getData() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                String uid = user.getUid();
+
+                Map<String, Object> totalsData = (Map<String, Object>) snapshot.child("totals").child(uid).getValue();
+                String putts = totalsData.get("total putts").toString();
+
+                TextView welcomeText = (TextView) findViewById(R.id.puttsMade);
+                welcomeText.setText("Putts made "+ putts);
+
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(MainActivity.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
     }
 

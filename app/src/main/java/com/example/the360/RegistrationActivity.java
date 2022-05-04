@@ -136,6 +136,11 @@ public class RegistrationActivity extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
 
+        Long time = System.currentTimeMillis()/1000;
+        String ts = time.toString();
+
+
+
         /**String pdganumberText = findViewById(R.id.pdgaNumber).toString();
         String firstnameText = findViewById(R.id.firstName).toString();
         String email = findViewById(R.id.email).toString();*/
@@ -144,6 +149,7 @@ public class RegistrationActivity extends AppCompatActivity {
         map.put("PDGA number", pdgaNumber);
         map.put("First name", firstName);
         map.put("Email", email);
+        map.put("Last time played", ts);
 
         databaseReference.child("user Data").child(uid).updateChildren(map);
     }

@@ -6,6 +6,10 @@
     <string name="register">Register</string>
     <string name="logout">Logout</string>
     <string name="welcomeText">Hjellooo juutuub!</string>
+    <string name="totalTriesText">Total tries</string>
+    <string name="toTodaysGoal">Left today</string>
+    <string name="daysSinceLastText">Last played</string>
+    <string name="totalPuttsText">Total putts</string>
 
     //// Putting
     <string name="frontPagePuttingHeader">Putting</string>

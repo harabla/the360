@@ -7,6 +7,67 @@
     tools:context=".MainActivity">
 
 
+    <TableRow
+        android:id="@+id/topLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/totalTries"
+            android:layout_width="100dp"
+            android:layout_height="50dp"/>
+
+        <TextView
+            android:id="@+id/leftTillTodaysGoal"
+            android:layout_width="100dp"
+            android:layout_height="50dp" />
+
+        <TextView
+            android:id="@+id/daysSinceLast"
+            android:layout_width="100dp"
+            android:layout_height="50dp" />
+
+        <TextView
+            android:id="@+id/totalPutts"
+            android:layout_width="100dp"
+            android:layout_height="50dp" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/topLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <TextView
+            android:id="@+id/totalTriesText"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/totalTriesText" />
+
+        <TextView
+            android:id="@+id/goalText"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/toTodaysGoal" />
+
+        <TextView
+            android:id="@+id/daysSinceLastText"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/daysSinceLastText" />
+
+        <TextView
+            android:id="@+id/totalPuttsText"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/totalPuttsText" />
+    </TableRow>
+
     <TextView
         android:id="@+id/mainHeader"
         android:layout_width="wrap_content"
