@@ -160,13 +160,13 @@ public class RegistrationActivity extends AppCompatActivity {
         int mpRecord10m = 0;
 
         HashMap<String , Object> map = new HashMap<>();
-        map.put("4", mpRecord4m);
-        map.put("5", mpRecord5m);
-        map.put("6", mpRecord6m);
-        map.put("7", mpRecord7m);
-        map.put("8", mpRecord8m);
-        map.put("9", mpRecord9m);
-        map.put("10", mpRecord10m);
+        map.put("4m", mpRecord4m);
+        map.put("5m", mpRecord5m);
+        map.put("6m", mpRecord6m);
+        map.put("7m", mpRecord7m);
+        map.put("8m", mpRecord8m);
+        map.put("9m", mpRecord9m);
+        map.put("10m", mpRecord10m);
 
 
 

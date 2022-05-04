@@ -21,13 +21,17 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
+import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Document;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class maxPuttsSettings extends AppCompatActivity {
 
@@ -126,6 +130,10 @@ public class maxPuttsSettings extends AppCompatActivity {
 
                 databaseReference.child("totals").child(uid).child("total putts").setValue(ServerValue.increment(finalscore+1));
                 score.getText().clear();
+
+                String strPuttDistance = puttDistance.toString();
+                String strPuttDistanceM = strPuttDistance + "m";
+                updateRecord(strPuttDistanceM, finalscore);
 
 
 
@@ -288,24 +296,31 @@ public class maxPuttsSettings extends AppCompatActivity {
                 switch (index) {
                     case 0:
                         puttDistance = 4;
+                        getRecord("4m");
                         break;
                     case 1:
                         puttDistance = 5;
+                        getRecord("5m");
                         break;
                     case 2:
                         puttDistance = 6;
+                        getRecord("6m");
                         break;
                     case 3:
                         puttDistance = 7;
+                        getRecord("7m");
                         break;
                     case 4:
                         puttDistance = 8;
+                        getRecord("8m");
                         break;
                     case 5:
                         puttDistance = 9;
+                        getRecord("9m");
                         break;
                     case 6:
                         puttDistance = 10;
+                        getRecord("10m");
                         break;
                 }
             }
@@ -352,15 +367,70 @@ public class maxPuttsSettings extends AppCompatActivity {
             }
         });
 
-        //public getRecord(String distance) {
-
-
-        //}
-
-
-
 
 
 
     }
+
+
+    public void getRecord(String distance) {
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                String uid = user.getUid();
+
+                Map<String, Object> totalsData = (Map<String, Object>) snapshot.child("Records").child(uid).getValue();
+                String putts = totalsData.get(distance).toString();
+
+
+                TextView highscore = findViewById(R.id.recordText);
+                highscore.setText("Your record is " + putts);
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(maxPuttsSettings.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void updateRecord(String DistanceText, int score) {
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                String uid = user.getUid();
+
+
+
+                Map<String, Object> totalsData = (Map<String, Object>) snapshot.child("Records").child(uid).getValue();
+                String putts = totalsData.get(DistanceText).toString();
+
+                int puttsHighScore = Integer.parseInt(putts);
+
+                if (puttsHighScore > score) {
+                    Toast.makeText(maxPuttsSettings.this, "No new record", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    Toast.makeText(maxPuttsSettings.this, "New record!", Toast.LENGTH_SHORT).show();
+                    databaseReference.child("Records").child(uid).child(DistanceText).setValue(score);
+
+                }
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+
 }
