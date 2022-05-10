@@ -50,7 +50,7 @@ public class maxPuttsSettings extends AppCompatActivity {
         //list buttons
 
         Button mpNewRound = findViewById(R.id.mpNewRound);
-        Button mpSaveExit = findViewById(R.id.mpFinishExit);
+        Button mpSaveExit = findViewById(R.id.mpLeaderboard);
         Button mpExit = findViewById(R.id.mpExit);
 
         EditText score = findViewById(R.id.maxPuttsmade);
@@ -113,18 +113,26 @@ public class maxPuttsSettings extends AppCompatActivity {
 
                 String stscore = score.getText().toString();
                 int finalscore = Integer.parseInt(stscore);
+                int totalPuttsAttempted = finalscore+1;
+                String strtotalPuttsAttempted = String.valueOf(totalPuttsAttempted);
+                String strPuttsDistance = String.valueOf(puttDistance);
+                String puttHeader = strPuttsDistance + "m";
+                String puttHeaderAttempted = puttHeader + " attempted";
+
 
                 Long time = System.currentTimeMillis()/1000;
                 String ts = time.toString();
 
                 HashMap<String , Object> map = new HashMap<>();
-                map.put("Score", finalscore);
-                map.put("Putts total", finalscore+1);
-                map.put("Distance", puttDistance);
+                map.put("Score", stscore);
+                map.put("Putts total", strtotalPuttsAttempted);
+                map.put("Distance", strPuttsDistance);
                 map.put("Wind Speed", windSpeed);
                 map.put("Location", location);
                 map.put("Wind Direction FrontBack", windFrontBehind);
                 map.put("Wind Direction LeftRight", windLeftRight);
+                map.put(puttHeader, stscore);
+                map.put(puttHeaderAttempted, strtotalPuttsAttempted);
 
                 databaseReference.child("Max Putts").child(uid).child(ts).updateChildren(map);
 
@@ -166,26 +174,8 @@ public class maxPuttsSettings extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(),"This should save data to firebase and exit to the front page",Toast.LENGTH_SHORT).show();
 
-                databaseReference.setValue("160").addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        Toast.makeText(getApplicationContext(), "success", Toast.LENGTH_SHORT).show();
-                        Log.i("succeeding", "success");
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(getApplicationContext(), "failed", Toast.LENGTH_SHORT).show();
-                        Log.i("failing", "failed");
-                    }
-                }).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(getApplicationContext(), "wtf", Toast.LENGTH_SHORT).show();
-                    }
-                });
 
-                Intent intent = new Intent(maxPuttsSettings.this,MainActivity.class);
+                Intent intent = new Intent(maxPuttsSettings.this,mpStatistics.class);
                 startActivity(intent);
 
             }

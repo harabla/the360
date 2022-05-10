@@ -17,6 +17,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
@@ -177,7 +178,6 @@ public class MainActivity extends AppCompatActivity {
             login.setVisibility(View.INVISIBLE);
             register.setVisibility(View.INVISIBLE);
 
-            getData();
 
 
         } else {
@@ -255,6 +255,7 @@ public class MainActivity extends AppCompatActivity {
                 String todaysDateRightFormat = dayToday + "-" + monthToday + "-" + yearToday;
 
 
+                // databaseReference.child("totals").child(uid).child("putt totals per day").child(todaysDateRightFormat).setValue(ServerValue.increment(0));
 
                 Map<String, Object> totalsDataDates = (Map<String, Object>) snapshot.child("totals").child(uid).child("putt totals per day").getValue();
                 String puttsToday = totalsDataDates.get(todaysDateRightFormat).toString();
@@ -282,35 +283,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-    }
-
-
-    private void getData() {
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                String uid = user.getUid();
-
-                Map<String, Object> totalsData = (Map<String, Object>) snapshot.child("totals").child(uid).getValue();
-                String putts = totalsData.get("total putts").toString();
-
-                TextView welcomeText = (TextView) findViewById(R.id.puttsMade);
-                welcomeText.setText("Putts made "+ putts);
-
-
-
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(MainActivity.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
-            }
-        });
 
 
     }
