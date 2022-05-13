@@ -59,6 +59,9 @@ public class PuttingActivity extends AppCompatActivity {
             fillInHeader(uid);
         }
 
+        // Putting
+        Button maxPuttsSelect = findViewById(R.id.maxputts);
+        Button jylySelect = findViewById(R.id.jyly);
 
         // Nav buttons
 
@@ -66,6 +69,24 @@ public class PuttingActivity extends AppCompatActivity {
         Button navPutting = findViewById(R.id.navPutting);
         Button navDriving = findViewById(R.id.navDriving);
         Button navAnalysis = findViewById(R.id.navAnalysis);
+
+
+        // Max putts selected
+        maxPuttsSelect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PuttingActivity.this,maxPuttsSettings.class);
+                startActivity(intent);
+            }
+        });
+
+        jylySelect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PuttingActivity.this,JylySettings.class);
+                startActivity(intent);
+            }
+        });
 
         // navigation buttons
 

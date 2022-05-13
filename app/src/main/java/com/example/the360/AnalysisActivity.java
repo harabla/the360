@@ -48,8 +48,7 @@ public class AnalysisActivity extends AppCompatActivity {
         databaseReference = firebaseDatabase.getReference();
 
         getUserProfile();
-
-
+        
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {

@@ -43,6 +43,47 @@
             android:layout_height="50dp" />
     </TableRow>
 
+    <TextView
+        android:id="@+id/puttingheader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/frontPagePuttingHeader"
+        app:layout_constraintBottom_toTopOf="@+id/tableRow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <TableRow
+        android:id="@+id/tableRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="350dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/jyly"
+            android:background="@drawable/circle"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/frontPageJyly"
+            android:textColor="#FFFFFF"
+            android:layout_margin="5dp"/>
+
+        <Button
+            android:id="@+id/maxputts"
+            android:background="@drawable/circle"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/frontPageMaxPutts"
+            android:textColor="#FFFFFF"
+            android:layout_margin="5dp"/>
+
+    </TableRow>
+
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

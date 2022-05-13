@@ -45,58 +45,50 @@
     </TableRow>
 
     <TableRow
+        android:id="@+id/tableRow8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/topLine"
+        android:background="@color/headerColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/headerColor">
+        app:layout_constraintTop_toBottomOf="@+id/topLine">
 
 
         <TextView
             android:id="@+id/totalTriesText"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/totalTriesText" />
 
         <TextView
             android:id="@+id/goalText"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/toTodaysGoal" />
 
         <TextView
             android:id="@+id/daysSinceLastText"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/daysSinceLastText" />
 
         <TextView
             android:id="@+id/totalPuttsText"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/totalPuttsText" />
     </TableRow>
 
-    <TextView
-        android:id="@+id/puttingheader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/frontPagePuttingHeader"
-        app:layout_constraintBottom_toTopOf="@+id/tableRow"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <TableRow
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/puttingheader"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/tableRow8">
 
         <Button
             android:id="@+id/Login"
@@ -129,126 +121,7 @@
             android:textColor="#FFFFFF" />
     </TableRow>
 
-    <TableRow
-        android:id="@+id/tableRow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="350dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/jyly"
-            android:background="@drawable/circle"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/frontPageJyly"
-            android:textColor="#FFFFFF"
-            android:layout_margin="5dp"/>
-
-        <Button
-            android:id="@+id/maxputts"
-            android:background="@drawable/circle"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/frontPageMaxPutts"
-            android:textColor="#FFFFFF"
-            android:layout_margin="5dp"/>
-
-    </TableRow>
-
-    <TextView
-        android:id="@+id/drivingheader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/frontPageDrivingHeader"
-        app:layout_constraintBottom_toTopOf="@+id/tableRow3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TableRow
-        android:id="@+id/tableRow3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableRow">
-
-        <Button
-            android:id="@+id/accuracy"
-            android:background="@drawable/circle"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#FFFFFF"
-            android:layout_margin="5dp"
-            android:text="@string/frontPageDrivingAccuracy" />
-
-        <Button
-            android:id="@+id/distance"
-            android:background="@drawable/circle"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#FFFFFF"
-            android:layout_margin="5dp"
-            android:text="@string/frontPageDrivingDistance" />
-
-        <Button
-            android:id="@+id/speed"
-            android:background="@drawable/circle"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#FFFFFF"
-            android:layout_margin="5dp"
-            android:text="@string/frontPageDrivingSpeed" />
-
-    </TableRow>
-
-    <TextView
-        android:id="@+id/roundheader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/frontPageRoundsHeader"
-
-        app:layout_constraintBottom_toTopOf="@+id/tableRow2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TableRow
-        android:id="@+id/tableRow2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableRow3">
-
-        <Button
-            android:id="@+id/inthebag"
-            android:background="@drawable/circle"
-            android:textColor="#FFFFFF"
-            android:layout_margin="5dp"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/frontPageITB" />
-
-        <Button
-            android:id="@+id/roundsum"
-            android:background="@drawable/circle"
-            android:textColor="#FFFFFF"
-            android:layout_margin="5dp"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/frontPageRoundSummary" />
-    </TableRow>
 
     <TableRow
         android:layout_width="match_parent"

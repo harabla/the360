@@ -44,90 +44,132 @@
     </TableRow>
 
     <TableRow
+        android:id="@+id/tableRow6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/topLine"
+        android:background="@color/headerColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/headerColor">
+        app:layout_constraintTop_toBottomOf="@+id/topLine">
 
 
         <TextView
             android:id="@+id/totalTriesText"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/totalTriesText" />
 
         <TextView
             android:id="@+id/goalText"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/toTodaysGoal" />
 
         <TextView
             android:id="@+id/daysSinceLastText"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/daysSinceLastText" />
 
         <TextView
             android:id="@+id/totalPuttsText"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/totalPuttsText" />
     </TableRow>
 
     <TableRow
+        android:id="@+id/tableRow7"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:background="@color/chinColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/chinColor">
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/navMain"
-            android:textSize="12dp"
-            android:textColor="@color/white"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
             android:text="@string/mainActivity"
-            android:background="?android:attr/selectableItemBackground"/>
+            android:textColor="@color/white"
+            android:textSize="12dp" />
 
         <Button
             android:id="@+id/navPutting"
-            android:textSize="12dp"
-            android:textColor="@color/white"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
             android:text="@string/puttingActivity"
-            android:background="?android:attr/selectableItemBackground"/>
+            android:textColor="@color/white"
+            android:textSize="12dp" />
 
         <Button
             android:id="@+id/navDriving"
-            android:textSize="12dp"
-            android:textColor="@color/white"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
             android:text="@string/drivingActivity"
-            android:background="?android:attr/selectableItemBackground" />
+            android:textColor="@color/white"
+            android:textSize="12dp" />
 
         <Button
             android:id="@+id/navAnalysis"
-            android:textSize="12dp"
-            android:textColor="@color/white"
             android:layout_width="0dp"
-            android:layout_weight="1.1"
             android:layout_height="wrap_content"
+            android:layout_weight="1.1"
+            android:background="?android:attr/selectableItemBackground"
             android:text="@string/roundAnalysisActivity"
-            android:background="?android:attr/selectableItemBackground" />
+            android:textColor="@color/white"
+            android:textSize="12dp" />
+    </TableRow>
+
+    <TextView
+        android:id="@+id/roundheader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/frontPageRoundsHeader"
+
+        app:layout_constraintBottom_toTopOf="@+id/tableRow2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="150dp"
+        app:layout_constraintBottom_toTopOf="@+id/tableRow7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/inthebag"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/circle"
+            android:text="@string/frontPageITB"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/roundsum"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/circle"
+            android:text="@string/frontPageRoundSummary"
+            android:textColor="#FFFFFF" />
     </TableRow>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

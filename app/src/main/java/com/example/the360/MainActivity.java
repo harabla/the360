@@ -97,57 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
         //What happens on button clicks
 
-        // Max putts selected
-        maxPuttsSelect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,maxPuttsSettings.class);
-                startActivity(intent);
-            }
-        });
 
-        jylySelect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,JylySettings.class);
-                startActivity(intent);
-            }
-        });
-
-        accuracySelect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),R.string.midterm,Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        distanceSelect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),R.string.midterm,Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        speedSelect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),R.string.midterm,Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        itbSelect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),R.string.longterm,Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        roundsummarySelect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),R.string.longterm,Toast.LENGTH_SHORT).show();
-            }
-        });
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
