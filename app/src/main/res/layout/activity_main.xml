@@ -9,61 +9,75 @@
 
     <TableRow
         android:id="@+id/topLine"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/headerColor">
 
         <TextView
             android:id="@+id/totalTries"
-            android:layout_width="100dp"
+            android:textSize="35dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="50dp"/>
 
         <TextView
             android:id="@+id/leftTillTodaysGoal"
-            android:layout_width="100dp"
+            android:textSize="35dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="50dp" />
 
         <TextView
             android:id="@+id/daysSinceLast"
-            android:layout_width="100dp"
+            android:textSize="25dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="50dp" />
 
         <TextView
             android:id="@+id/totalPutts"
-            android:layout_width="100dp"
+            android:textSize="35dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="50dp" />
     </TableRow>
 
     <TableRow
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/topLine"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/headerColor">
 
 
         <TextView
             android:id="@+id/totalTriesText"
-            android:layout_width="100dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="@string/totalTriesText" />
 
         <TextView
             android:id="@+id/goalText"
-            android:layout_width="100dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="@string/toTodaysGoal" />
 
         <TextView
             android:id="@+id/daysSinceLastText"
-            android:layout_width="100dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="@string/daysSinceLastText" />
 
         <TextView
             android:id="@+id/totalPuttsText"
-            android:layout_width="100dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="@string/totalPuttsText" />
     </TableRow>
@@ -234,6 +248,55 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/frontPageRoundSummary" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/chinColor">
+
+        <Button
+            android:id="@+id/button"
+            android:textSize="12dp"
+            android:textColor="@color/white"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/mainActivity"
+            android:background="?android:attr/selectableItemBackground"/>
+
+        <Button
+            android:id="@+id/button2"
+            android:textSize="12dp"
+            android:textColor="@color/white"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/puttingActivity"
+            android:background="?android:attr/selectableItemBackground"/>
+
+        <Button
+            android:id="@+id/button3"
+            android:textSize="12dp"
+            android:textColor="@color/white"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/drivingActivity"
+            android:background="?android:attr/selectableItemBackground" />
+
+        <Button
+            android:id="@+id/button4"
+            android:textSize="12dp"
+            android:textColor="@color/white"
+            android:layout_width="0dp"
+            android:layout_weight="1.1"
+            android:layout_height="wrap_content"
+            android:text="@string/roundAnalysisActivity"
+            android:background="?android:attr/selectableItemBackground" />
     </TableRow>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
