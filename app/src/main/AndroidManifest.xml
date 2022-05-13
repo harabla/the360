@@ -13,6 +13,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.The360">
         <activity
+            android:name=".AnalysisActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DrivingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PuttingActivity"
+            android:exported="false" />
+        <activity
             android:name=".mpStatistics"
             android:exported="false" />
         <activity

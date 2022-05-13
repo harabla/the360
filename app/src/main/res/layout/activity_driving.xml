@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DrivingActivity">
+
+    <TableRow
+        android:id="@+id/topLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/headerColor">
+
+        <TextView
+            android:id="@+id/totalTries"
+            android:textSize="35dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"/>
+
+        <TextView
+            android:id="@+id/leftTillTodaysGoal"
+            android:textSize="35dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp" />
+
+        <TextView
+            android:id="@+id/daysSinceLast"
+            android:textSize="25dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp" />
+
+        <TextView
+            android:id="@+id/totalPutts"
+            android:textSize="35dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/topLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/headerColor">
+
+
+        <TextView
+            android:id="@+id/totalTriesText"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/totalTriesText" />
+
+        <TextView
+            android:id="@+id/goalText"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/toTodaysGoal" />
+
+        <TextView
+            android:id="@+id/daysSinceLastText"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/daysSinceLastText" />
+
+        <TextView
+            android:id="@+id/totalPuttsText"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/totalPuttsText" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/chinColor">
+
+        <Button
+            android:id="@+id/navMain"
+            android:textSize="12dp"
+            android:textColor="@color/white"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/mainActivity"
+            android:background="?android:attr/selectableItemBackground"/>
+
+        <Button
+            android:id="@+id/navPutting"
+            android:textSize="12dp"
+            android:textColor="@color/white"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/puttingActivity"
+            android:background="?android:attr/selectableItemBackground"/>
+
+        <Button
+            android:id="@+id/navDriving"
+            android:textSize="12dp"
+            android:textColor="@color/white"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/drivingActivity"
+            android:background="?android:attr/selectableItemBackground" />
+
+        <Button
+            android:id="@+id/navAnalysis"
+            android:textSize="12dp"
+            android:textColor="@color/white"
+            android:layout_width="0dp"
+            android:layout_weight="1.1"
+            android:layout_height="wrap_content"
+            android:text="@string/roundAnalysisActivity"
+            android:background="?android:attr/selectableItemBackground" />
+    </TableRow>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

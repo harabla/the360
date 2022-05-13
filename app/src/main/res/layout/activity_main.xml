@@ -259,7 +259,7 @@
         android:background="@color/chinColor">
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/navMain"
             android:textSize="12dp"
             android:textColor="@color/white"
             android:layout_width="0dp"
@@ -269,7 +269,7 @@
             android:background="?android:attr/selectableItemBackground"/>
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/navPutting"
             android:textSize="12dp"
             android:textColor="@color/white"
             android:layout_width="0dp"
@@ -279,7 +279,7 @@
             android:background="?android:attr/selectableItemBackground"/>
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/navDriving"
             android:textSize="12dp"
             android:textColor="@color/white"
             android:layout_width="0dp"
@@ -289,7 +289,7 @@
             android:background="?android:attr/selectableItemBackground" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/navAnalysis"
             android:textSize="12dp"
             android:textColor="@color/white"
             android:layout_width="0dp"
