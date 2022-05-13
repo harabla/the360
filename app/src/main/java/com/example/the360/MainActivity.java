@@ -31,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
+    String puttsToday;
+    Integer toGoal, intPuttsToday;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -258,18 +261,23 @@ public class MainActivity extends AppCompatActivity {
                 // databaseReference.child("totals").child(uid).child("putt totals per day").child(todaysDateRightFormat).setValue(ServerValue.increment(0));
 
                 Map<String, Object> totalsDataDates = (Map<String, Object>) snapshot.child("totals").child(uid).child("putt totals per day").getValue();
-                String puttsToday = totalsDataDates.get(todaysDateRightFormat).toString();
 
-                int intPuttsToday = Integer.valueOf(puttsToday);
+
+
+                if (totalsDataDates.containsKey(todaysDateRightFormat)) {
+                    puttsToday = totalsDataDates.get(todaysDateRightFormat).toString();
+
+                    intPuttsToday = Integer.valueOf(puttsToday);
+                } else {
+                    intPuttsToday = 0;
+                }
 
                 int intPutts = Integer.parseInt(putts);
-                int toGoal = ((100000 - intPutts) / daysLeft) - intPuttsToday;
+                toGoal = ((100000 - intPutts) / daysLeft) - intPuttsToday;
 
                 String strToGoal = Integer.toString(toGoal);
 
-
                 leftTillTodaysGoal.setText(strToGoal);
-
 
                 totalTries.setText(strDaysLeft);
 

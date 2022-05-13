@@ -72,6 +72,7 @@ public class mpStatistics extends AppCompatActivity {
 
         //lets start populating fields
 
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
         databaseReference = FirebaseDatabase.getInstance("https://the360-70adc-default-rtdb.europe-west1.firebasedatabase.app/").getReference();
@@ -84,12 +85,14 @@ public class mpStatistics extends AppCompatActivity {
 
 
         //goal values
-
+        getGoalValues("4m");
+        getGoalValues("5m");
+        getGoalValues("6m");
+        getGoalValues("7m");
 
         mpScores4target.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
             }
 
             @Override
@@ -400,17 +403,37 @@ public class mpStatistics extends AppCompatActivity {
         }
     };
 
-    /**
-    public String getGoalValues(String distance){
-        String goal;
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
+
+    public void getGoalValues(String distance){
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            String goal;
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 String uid = user.getUid();
 
                 Map<String, Object> totalsData = (Map<String, Object>) snapshot.child("Max Putt Targets").child(uid).getValue();
                 goal = totalsData.get(distance).toString();
+
+
+                if (distance.equals("4m")) {
+                    EditText mpScores4target = findViewById(R.id.mpScores4target);
+                    mpScores4target.setText("99");
+                }
+
+                if (distance == "5m") {
+                    EditText mpScores5target = findViewById(R.id.mpScores5target);
+                    mpScores5target.setText(goal);
+                }
+
+                if (distance == "6m") {
+                    EditText mpScores6target = findViewById(R.id.mpScores6target);
+                    mpScores6target.setText(goal);
+                }
+
+                if (distance == "7m") {
+                    EditText mpScores7target = findViewById(R.id.mpScores7target);
+                    mpScores7target.setText(goal);
+                }
             }
 
             @Override
@@ -420,9 +443,8 @@ public class mpStatistics extends AppCompatActivity {
 
 
         });
-        return goal;
 
 
-    } */
+    }
 
 }
