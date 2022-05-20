@@ -21,6 +21,7 @@
     <string name="frontPagePuttingHeader">Putting</string>
     <string name="frontPageJyly">Jyly</string>
     <string name="frontPageMaxPutts">Max Putts</string>
+    <string name="frontPageRandomPutts">Random Putts</string>
     <string name="puttLocationText">Putt Location</string>
     <string name="windSpeedText2">Wind Speed</string>
     <string name="windFrontBackText">Wind (Front/Back)</string>
@@ -89,6 +90,13 @@
     <string name="headerRowCurrentPros">Current%</string>
     <string name="headerRowCurrentCumulative">Cumulative%</string>
     <string name="headerRowPuttsAttempted">Putts Attempted</string>
+
+    // randputts strings
+    <string name="toggleLocation">Location</string>
+    <string name="toggleWind">Wind</string>
+    <string name="toggleStance">Stance</string>
+    <string name="toggleDistance">Distance</string>
+    <string name="toggleTarget">Target</string>
 
 
 </resources>

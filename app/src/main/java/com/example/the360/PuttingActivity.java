@@ -62,6 +62,7 @@ public class PuttingActivity extends AppCompatActivity {
         // Putting
         Button maxPuttsSelect = findViewById(R.id.maxputts);
         Button jylySelect = findViewById(R.id.jyly);
+        Button randomPutts = findViewById(R.id.randomPutts);
 
         // Nav buttons
 
@@ -76,6 +77,14 @@ public class PuttingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(PuttingActivity.this,maxPuttsSettings.class);
+                startActivity(intent);
+            }
+        });
+
+        randomPutts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PuttingActivity.this,Randomputts.class);
                 startActivity(intent);
             }
         });

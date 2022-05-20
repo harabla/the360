@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.The360">
         <activity
+            android:name=".Randomputts"
+            android:exported="false" />
+        <activity
             android:name=".AnalysisActivity"
             android:exported="false" />
         <activity
