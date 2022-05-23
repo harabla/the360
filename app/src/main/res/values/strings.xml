@@ -28,6 +28,8 @@
     <string name="windLeftRightText">Wind (Left/Right)</string>
     <string name="scoreText">Amount made</string>
     <string name="puttDistanceText">Putting Distance</string>
+    <string name="missesText">Misses</string>
+    <string name="attemptsText">Attempts</string>
 
     //// Driving
     <string name="frontPageDrivingHeader">Driving</string>

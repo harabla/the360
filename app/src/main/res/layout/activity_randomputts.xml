@@ -290,28 +290,82 @@
 
     </RadioGroup>
 
-    <TextView
-        android:id="@+id/scoreText"
-        android:layout_width="wrap_content"
+    <TableLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/scoreText"
-        app:layout_constraintBottom_toTopOf="@+id/maxPuttsmade"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/tableRow10">
 
-    <EditText
-        android:id="@+id/maxPuttsmade"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:inputType="number"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/maxPuttsDistance" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="20dp">
+
+            <TextView
+                android:id="@+id/scoreText"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="@string/scoreText"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/missesText"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="@string/missesText"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/attemptsText"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="@string/attemptsText"
+                android:textAlignment="center" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="20dp">
+
+            <EditText
+                android:id="@+id/maxPuttsmade"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_marginTop="24dp"
+                android:ems="10"
+                android:inputType="number"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/maxPuttsMissed"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_marginTop="24dp"
+                android:ems="10"
+                android:inputType="number"
+                android:minHeight="48dp" />
+
+
+            <EditText
+                android:id="@+id/maxPuttsAttempts"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_marginTop="24dp"
+                android:ems="10"
+                android:inputType="number"
+                android:minHeight="48dp" />
+        </TableRow>
+
+    </TableLayout>
 
     <TableRow
+        android:id="@+id/tableRow10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/tableRow9">
@@ -319,48 +373,48 @@
         <ToggleButton
             android:id="@+id/toggleLocation"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="10dp"
+            android:layout_height="wrap_content"
             android:text="@string/toggleLocation"
+            android:textOff="@string/toggleLocation"
             android:textOn="@string/toggleLocation"
-            android:textOff="@string/toggleLocation"/>
+            android:textSize="10dp" />
 
         <ToggleButton
             android:id="@+id/toggleWind"
-            android:textSize="10dp"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textOff="@string/toggleWind"
             android:textOn="@string/toggleWind"
-            android:textOff="@string/toggleWind" />
+            android:textSize="10dp" />
 
         <ToggleButton
             android:id="@+id/toggleStance"
-            android:textSize="10dp"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textOff="@string/toggleStance"
             android:textOn="@string/toggleStance"
-            android:textOff="@string/toggleStance" />
+            android:textSize="10dp" />
 
         <ToggleButton
             android:id="@+id/toggleDistance"
-            android:textSize="10dp"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textOff="@string/toggleDistance"
             android:textOn="@string/toggleDistance"
-            android:textOff="@string/toggleDistance" />
+            android:textSize="10dp" />
 
         <ToggleButton
             android:id="@+id/toggleTarget"
-            android:textSize="10dp"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textOff="@string/toggleTarget"
             android:textOn="@string/toggleTarget"
-            android:textOff="@string/toggleTarget" />
+            android:textSize="10dp" />
     </TableRow>
 
     <TableRow

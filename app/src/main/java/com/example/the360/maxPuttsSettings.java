@@ -268,8 +268,8 @@ public class maxPuttsSettings extends AppCompatActivity {
 
                     case 2:
                         Toast.makeText(getApplicationContext(), "Selected button number " + index, 500).show();
-                        windFrontBackHeader.setVisibility(View.VISIBLE);
-                        windLeftRightHeader.setVisibility(View.VISIBLE);
+                        radioGroupWindSelectFrontBack.setVisibility(View.VISIBLE);
+                        radioGroupWindSelectLeftRight.setVisibility(View.VISIBLE);
 
                         windFrontBackHeader.setVisibility(View.VISIBLE);
                         windLeftRightHeader.setVisibility(View.VISIBLE);

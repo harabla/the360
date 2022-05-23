@@ -7,8 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -17,6 +19,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import org.w3c.dom.Text;
 
 public class Randomputts extends AppCompatActivity {
 
@@ -51,6 +55,8 @@ public class Randomputts extends AppCompatActivity {
         Button mpExit = findViewById(R.id.mpExit);
 
         EditText score = findViewById(R.id.maxPuttsmade);
+        EditText misses = findViewById(R.id.maxPuttsMissed);
+        EditText attempts = findViewById(R.id.maxPuttsAttempts);
 
         ToggleButton toggleLocation = findViewById(R.id.toggleLocation);
         ToggleButton toggleWind = findViewById(R.id.toggleWind);
@@ -73,6 +79,10 @@ public class Randomputts extends AppCompatActivity {
         RadioButton radioButtonWindLeftRightNone = (RadioButton) findViewById(R.id.mpWindLeftRightNone);
         RadioButton radioButtonWindSpeedNone = (RadioButton) findViewById(R.id.mpWindNone);
         RadioButton radioButtonLocationIndoors = (RadioButton) findViewById(R.id.mpIndoors);
+
+        TextView headerScore = findViewById(R.id.scoreText);
+        TextView headerMisses = findViewById(R.id.missesText);
+        TextView attemptHeader = findViewById(R.id.attemptsText);
 
         //Default values
         radioButtonWindFrontBackNone.setChecked(true);
@@ -98,7 +108,7 @@ public class Randomputts extends AppCompatActivity {
         toggleLocation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b == true) {
+                if (b) {
                     radioGroupLocation.setVisibility(View.VISIBLE);
                     puttLocationHeader.setVisibility(View.VISIBLE);
                 } else {
@@ -140,6 +150,70 @@ public class Randomputts extends AppCompatActivity {
             }
         });
 
+        toggleTarget.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b == true) {
+
+
+
+                    TableRow.LayoutParams hideParams = new TableRow.LayoutParams(
+                            0,
+                            100,
+                            0);
+
+                    TableRow.LayoutParams visibleParams = new TableRow.LayoutParams(
+                            0,
+                            100,
+                            1);
+
+
+                    headerScore.setVisibility(View.INVISIBLE);
+                    headerScore.setLayoutParams(hideParams);
+                    score.setVisibility(View.INVISIBLE);
+                    score.setLayoutParams(hideParams);
+                    attemptHeader.setVisibility(View.VISIBLE);
+                    attemptHeader.setLayoutParams(visibleParams);
+                    attempts.setVisibility(View.VISIBLE);
+                    attempts.setLayoutParams(visibleParams);
+                    headerMisses.setVisibility(View.VISIBLE);
+                    headerMisses.setLayoutParams(visibleParams);
+                    misses.setVisibility(View.VISIBLE);
+                    misses.setLayoutParams(visibleParams);
+
+
+
+
+                } else {
+
+
+                    TableRow.LayoutParams hideParams = new TableRow.LayoutParams(
+                            0,
+                            100,
+                            0);
+
+                    TableRow.LayoutParams visibleParams = new TableRow.LayoutParams(
+                            0,
+                            100,
+                            1);
+
+                    headerScore.setVisibility(View.VISIBLE);
+                    headerScore.setLayoutParams(visibleParams);
+                    score.setVisibility(View.VISIBLE);
+                    score.setLayoutParams(visibleParams);
+                    attemptHeader.setVisibility(View.INVISIBLE);
+                    attemptHeader.setLayoutParams(hideParams);
+                    attempts.setVisibility(View.INVISIBLE);
+                    attempts.setLayoutParams(hideParams);
+                    headerMisses.setVisibility(View.INVISIBLE);
+                    headerMisses.setLayoutParams(hideParams);
+                    misses.setVisibility(View.INVISIBLE);
+                    misses.setLayoutParams(hideParams);
+
+                }
+            }
+        });
+
         radioGroupWindSelectWindSpeed.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -173,8 +247,8 @@ public class Randomputts extends AppCompatActivity {
 
                     case 2:
                         Toast.makeText(getApplicationContext(), "Selected button number " + index, 500).show();
-                        windFrontBackHeader.setVisibility(View.VISIBLE);
-                        windLeftRightHeader.setVisibility(View.VISIBLE);
+                        radioGroupWindSelectFrontBack.setVisibility(View.VISIBLE);
+                        radioGroupWindSelectLeftRight.setVisibility(View.VISIBLE);
 
                         windFrontBackHeader.setVisibility(View.VISIBLE);
                         windLeftRightHeader.setVisibility(View.VISIBLE);
