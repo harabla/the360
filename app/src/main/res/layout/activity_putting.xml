@@ -6,6 +6,93 @@
     android:layout_height="match_parent"
     tools:context=".PuttingActivity">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/puttingSelectionTree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:focusable="true"
+        android:src="@drawable/ic_baseline_arrow_circle_up_24"
+        app:layout_constraintBottom_toTopOf="@+id/tableRow11"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/puttingSelectionTreeMP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:focusable="true"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_baseline_arrow_circle_up_24"
+        app:layout_constraintBottom_toTopOf="@+id/puttingSelectionTree"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <FrameLayout
+        android:id="@+id/frameLayoutRP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        app:layout_constraintBottom_toTopOf="@+id/puttingSelectionTreeMP"
+        app:layout_constraintEnd_toEndOf="parent">
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/puttingSelectionTreeRP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp" />
+
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/frontPageRandomPutts"
+            android:elevation="16dp"
+            android:textColor="@android:color/white"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayoutJyly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayoutRP"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="invisible">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/puttingSelectionTreeJyly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:focusable="true"
+            android:layout_margin="16dp"
+            android:tint="@color/white"
+            />
+
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/frontPageJyly"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:elevation="16dp"
+            android:textColor="@android:color/white"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            />
+
+    </FrameLayout>
+
+
+
+
     <TableRow
         android:id="@+id/topLine"
         android:layout_width="match_parent"
@@ -133,52 +220,53 @@
     </TableRow>
 
     <TableRow
+        android:id="@+id/tableRow11"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:background="@color/chinColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/chinColor">
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/navMain"
-            android:textSize="12dp"
-            android:textColor="@color/white"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
             android:text="@string/mainActivity"
-            android:background="?android:attr/selectableItemBackground"/>
+            android:textColor="@color/white"
+            android:textSize="12dp" />
 
         <Button
             android:id="@+id/navPutting"
-            android:textSize="12dp"
-            android:textColor="@color/white"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
             android:text="@string/puttingActivity"
-            android:background="?android:attr/selectableItemBackground"/>
+            android:textColor="@color/white"
+            android:textSize="12dp" />
 
         <Button
             android:id="@+id/navDriving"
-            android:textSize="12dp"
-            android:textColor="@color/white"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
             android:text="@string/drivingActivity"
-            android:background="?android:attr/selectableItemBackground" />
+            android:textColor="@color/white"
+            android:textSize="12dp" />
 
         <Button
             android:id="@+id/navAnalysis"
-            android:textSize="12dp"
-            android:textColor="@color/white"
             android:layout_width="0dp"
-            android:layout_weight="1.1"
             android:layout_height="wrap_content"
+            android:layout_weight="1.1"
+            android:background="?android:attr/selectableItemBackground"
             android:text="@string/roundAnalysisActivity"
-            android:background="?android:attr/selectableItemBackground" />
+            android:textColor="@color/white"
+            android:textSize="12dp" />
     </TableRow>
 
 

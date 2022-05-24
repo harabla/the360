@@ -6,10 +6,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -23,12 +27,17 @@ import java.util.Map;
 
 public class PuttingActivity extends AppCompatActivity {
 
+    FloatingActionButton puttingSelectionTree, puttingSelectionTreeMP, puttingSelectionTreeRP, puttingSelectionTreeJyly;
+
+    Animation rotate_open, rotate_close, from_bottom, to_bottom;
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
     String puttsToday;
     Integer toGoal, intPuttsToday;
+
+    boolean isFABOpen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +68,22 @@ public class PuttingActivity extends AppCompatActivity {
             fillInHeader(uid);
         }
 
+
+        //load animations
+        rotate_open = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_open_anim);
+        rotate_close = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_close_anim);
+        from_bottom = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.from_bottom_anim);
+        to_bottom = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.to_bottom_anim);
+
+        //new buttons
+        puttingSelectionTree = (FloatingActionButton) findViewById(R.id.puttingSelectionTree);
+        puttingSelectionTreeMP = (FloatingActionButton) findViewById(R.id.puttingSelectionTreeMP);
+        puttingSelectionTreeRP = (FloatingActionButton) findViewById(R.id.puttingSelectionTreeRP);
+        puttingSelectionTreeJyly = (FloatingActionButton) findViewById(R.id.puttingSelectionTreeJyly);
+
+        FrameLayout frameLayoutJyly = (FrameLayout) findViewById(R.id.frameLayoutJyly);
+        FrameLayout frameLayoutRP = (FrameLayout) findViewById(R.id.frameLayoutRP);
+
         // Putting
         Button maxPuttsSelect = findViewById(R.id.maxputts);
         Button jylySelect = findViewById(R.id.jyly);
@@ -70,6 +95,31 @@ public class PuttingActivity extends AppCompatActivity {
         Button navPutting = findViewById(R.id.navPutting);
         Button navDriving = findViewById(R.id.navDriving);
         Button navAnalysis = findViewById(R.id.navAnalysis);
+
+
+        //tree onclicklisteners
+        isFABOpen = false;
+
+        puttingSelectionTree.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!isFABOpen) {
+                    puttingSelectionTreeMP.startAnimation(from_bottom);
+                    frameLayoutRP.startAnimation(from_bottom);
+                    frameLayoutJyly.startAnimation(from_bottom);
+                    isFABOpen=true;
+
+                } else {
+                    puttingSelectionTreeMP.startAnimation(to_bottom);
+                    frameLayoutRP.startAnimation(to_bottom);
+                    frameLayoutJyly.startAnimation(to_bottom);
+                    isFABOpen=false;
+                }
+
+            }
+        });
+
+
 
 
         // Max putts selected
@@ -241,4 +291,6 @@ public class PuttingActivity extends AppCompatActivity {
             logout.setVisibility(View.INVISIBLE);
         }
     }
+
+
 }
