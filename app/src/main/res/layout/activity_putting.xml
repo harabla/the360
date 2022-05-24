@@ -18,77 +18,43 @@
         app:layout_constraintEnd_toEndOf="parent"
         />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/puttingSelectionTreeMP"
+    <Button
+        android:id="@+id/jyly"
+        android:background="@drawable/circle"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:focusable="true"
-        android:layout_margin="16dp"
-        android:src="@drawable/ic_baseline_arrow_circle_up_24"
+        android:text="@string/frontPageJyly"
+        android:textColor="#FFFFFF"
+        android:layout_margin="5dp"
         app:layout_constraintBottom_toTopOf="@+id/puttingSelectionTree"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <FrameLayout
-        android:id="@+id/frameLayoutRP"
+    <Button
+        android:id="@+id/maxputts"
+        android:background="@drawable/circle"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        app:layout_constraintBottom_toTopOf="@+id/puttingSelectionTreeMP"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:text="@string/frontPageMaxPutts"
+        android:textColor="#FFFFFF"
+        android:layout_margin="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/jyly"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/puttingSelectionTreeRP"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:focusable="true"
-            android:layout_gravity="end|bottom"
-            android:layout_margin="16dp" />
-
-            <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/frontPageRandomPutts"
-            android:elevation="16dp"
-            android:textColor="@android:color/white"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            />
-
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/frameLayoutJyly"
+    <Button
+        android:id="@+id/randomPutts"
+        android:background="@drawable/circle"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayoutRP"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:visibility="invisible">
+        android:text="@string/frontPageRandomPutts"
+        android:textColor="#FFFFFF"
+        android:layout_margin="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/maxputts"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/puttingSelectionTreeJyly"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:focusable="true"
-            android:layout_margin="16dp"
-            android:tint="@color/white"
-            />
 
-            <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/frontPageJyly"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:elevation="16dp"
-            android:textColor="@android:color/white"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            />
-
-    </FrameLayout>
 
 
 
@@ -149,73 +115,50 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/jyly"
-            android:background="@drawable/circle"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/frontPageJyly"
-            android:textColor="#FFFFFF"
-            android:layout_margin="5dp"/>
 
-        <Button
-            android:id="@+id/maxputts"
-            android:background="@drawable/circle"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/frontPageMaxPutts"
-            android:textColor="#FFFFFF"
-            android:layout_margin="5dp"/>
 
-        <Button
-            android:id="@+id/randomPutts"
-            android:background="@drawable/circle"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/frontPageRandomPutts"
-            android:textColor="#FFFFFF"
-            android:layout_margin="5dp"/>
+
+
+
 
     </TableRow>
 
     <TableRow
+        android:id="@+id/tableRow12"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/topLine"
+        android:background="@color/headerColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/headerColor">
+        app:layout_constraintTop_toBottomOf="@+id/topLine">
 
 
         <TextView
             android:id="@+id/totalTriesText"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/totalTriesText" />
 
         <TextView
             android:id="@+id/goalText"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/toTodaysGoal" />
 
         <TextView
             android:id="@+id/daysSinceLastText"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/daysSinceLastText" />
 
         <TextView
             android:id="@+id/totalPuttsText"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/totalPuttsText" />
     </TableRow>
 
@@ -268,6 +211,15 @@
             android:textColor="@color/white"
             android:textSize="12dp" />
     </TableRow>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/puttingRecyclerView"
+        android:layout_width="182dp"
+        android:layout_height="600dp"
+        app:layout_constraintBottom_toTopOf="@+id/tableRow11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableRow12" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

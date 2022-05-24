@@ -2,6 +2,8 @@ package com.example.the360;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,6 +24,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Map;
 
@@ -38,6 +41,10 @@ public class PuttingActivity extends AppCompatActivity {
     Integer toGoal, intPuttsToday;
 
     boolean isFABOpen;
+
+    RecyclerView scoreRecyclerView;
+    puttingScoreAdapter puttingScoreAdapter;
+    ArrayList<puttingScore> puttingScoreList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,17 +84,15 @@ public class PuttingActivity extends AppCompatActivity {
 
         //new buttons
         puttingSelectionTree = (FloatingActionButton) findViewById(R.id.puttingSelectionTree);
-        puttingSelectionTreeMP = (FloatingActionButton) findViewById(R.id.puttingSelectionTreeMP);
-        puttingSelectionTreeRP = (FloatingActionButton) findViewById(R.id.puttingSelectionTreeRP);
-        puttingSelectionTreeJyly = (FloatingActionButton) findViewById(R.id.puttingSelectionTreeJyly);
-
-        FrameLayout frameLayoutJyly = (FrameLayout) findViewById(R.id.frameLayoutJyly);
-        FrameLayout frameLayoutRP = (FrameLayout) findViewById(R.id.frameLayoutRP);
 
         // Putting
         Button maxPuttsSelect = findViewById(R.id.maxputts);
         Button jylySelect = findViewById(R.id.jyly);
-        Button randomPutts = findViewById(R.id.randomPutts);
+        Button randomPuttsSelect = findViewById(R.id.randomPutts);
+
+        maxPuttsSelect.setVisibility(View.INVISIBLE);
+        jylySelect.setVisibility(View.INVISIBLE);
+        randomPuttsSelect.setVisibility(View.INVISIBLE);
 
         // Nav buttons
 
@@ -96,6 +101,32 @@ public class PuttingActivity extends AppCompatActivity {
         Button navDriving = findViewById(R.id.navDriving);
         Button navAnalysis = findViewById(R.id.navAnalysis);
 
+        //recycler view
+        scoreRecyclerView = findViewById(R.id.puttingRecyclerView);
+        scoreRecyclerView.setHasFixedSize(true);
+        scoreRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        puttingScoreList = new ArrayList<>();
+        puttingScoreAdapter = new puttingScoreAdapter(this,puttingScoreList);
+        scoreRecyclerView.setAdapter(puttingScoreAdapter);
+
+        databaseReference.child("Max Putts").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+
+                    puttingScore puttingScore = dataSnapshot.getValue(puttingScore.class);
+                    puttingScoreList.add(puttingScore);
+
+                }
+                puttingScoreAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         //tree onclicklisteners
         isFABOpen = false;
@@ -104,15 +135,15 @@ public class PuttingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(!isFABOpen) {
-                    puttingSelectionTreeMP.startAnimation(from_bottom);
-                    frameLayoutRP.startAnimation(from_bottom);
-                    frameLayoutJyly.startAnimation(from_bottom);
+                    jylySelect.startAnimation(from_bottom);
+                    maxPuttsSelect.startAnimation(from_bottom);
+                    randomPuttsSelect.startAnimation(from_bottom);
                     isFABOpen=true;
 
                 } else {
-                    puttingSelectionTreeMP.startAnimation(to_bottom);
-                    frameLayoutRP.startAnimation(to_bottom);
-                    frameLayoutJyly.startAnimation(to_bottom);
+                    jylySelect.startAnimation(to_bottom);
+                    maxPuttsSelect.startAnimation(to_bottom);
+                    randomPuttsSelect.startAnimation(to_bottom);
                     isFABOpen=false;
                 }
 
@@ -131,7 +162,7 @@ public class PuttingActivity extends AppCompatActivity {
             }
         });
 
-        randomPutts.setOnClickListener(new View.OnClickListener() {
+        randomPuttsSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(PuttingActivity.this,Randomputts.class);
