@@ -69,11 +69,7 @@ public class PuttingActivity extends AppCompatActivity {
 
 
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            String uid = user.getUid();
-            fillInHeader(uid);
-        }
+
 
 
         //load animations
@@ -110,23 +106,32 @@ public class PuttingActivity extends AppCompatActivity {
         puttingScoreAdapter = new puttingScoreAdapter(this,puttingScoreList);
         scoreRecyclerView.setAdapter(puttingScoreAdapter);
 
-        databaseReference.child("Max Putts").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            String uid = user.getUid();
+            fillInHeader(uid);
 
-                    puttingScore puttingScore = dataSnapshot.getValue(puttingScore.class);
-                    puttingScoreList.add(puttingScore);
+
+            databaseReference.child("Max Putts").child(uid).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+
+                        puttingScore puttingScore = dataSnapshot.getValue(puttingScore.class);
+                        puttingScoreList.add(puttingScore);
+
+                    }
+                    puttingScoreAdapter.notifyDataSetChanged();
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
 
                 }
-                puttingScoreAdapter.notifyDataSetChanged();
-            }
+            });
+        }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
 
-            }
-        });
 
         //tree onclicklisteners
         isFABOpen = false;
