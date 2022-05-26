@@ -98,13 +98,20 @@ public class PuttingActivity extends AppCompatActivity {
         Button navAnalysis = findViewById(R.id.navAnalysis);
 
         //recycler view
+
+
         scoreRecyclerView = findViewById(R.id.puttingRecyclerView);
         scoreRecyclerView.setHasFixedSize(true);
-        scoreRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setStackFromEnd(true);
+        linearLayoutManager.setReverseLayout(true);
+        scoreRecyclerView.setLayoutManager(linearLayoutManager);
+
 
         puttingScoreList = new ArrayList<>();
         puttingScoreAdapter = new puttingScoreAdapter(this,puttingScoreList);
         scoreRecyclerView.setAdapter(puttingScoreAdapter);
+
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
@@ -112,7 +119,7 @@ public class PuttingActivity extends AppCompatActivity {
             fillInHeader(uid);
 
 
-            databaseReference.child("Max Putts").child(uid).addValueEventListener(new ValueEventListener() {
+            databaseReference.child("Putting practice data").child(uid).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {

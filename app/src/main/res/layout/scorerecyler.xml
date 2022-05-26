@@ -6,99 +6,123 @@
     xmlns:app="http://schemas.android.com/tools"
     app:cardElevation="8dp"
     app:cardCornerRadius="8dp"
-    android:layout_margin="16dp">
+    android:layout_margin="8dp">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="Type:"
                 android:textColor="@color/black"
                 android:textSize="26dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/recyclerGameType"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:text="Max Putts"
                 android:textColor="@color/black"
-                android:textSize="26dp"/>
+                android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/recyclerScoreHeader"
-                android:layout_marginLeft="5dp"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:layout_marginLeft="5dp"
                 android:text="Score:"
                 android:textColor="@color/black"
                 android:textSize="26dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/recyclerScore"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="100"
                 android:textColor="@color/black"
-                android:textSize="26dp"/>
+                android:textSize="20dp" />
+        </TableRow>
 
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="Location:"
                 android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold"/>
+                android:textSize="15dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/recyclerLocation"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="Max Putts"
                 android:textColor="@color/black"
-                android:textSize="20dp"/>
+                android:textSize="15dp" />
 
             <TextView
                 android:id="@+id/recyclerWindHeader"
-                android:layout_marginLeft="5dp"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
                 android:text="Wind:"
                 android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold"/>
+                android:textSize="15dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/recyclerWind"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="None"
                 android:textColor="@color/black"
-                android:textSize="20dp"/>
+                android:textSize="15dp" />
 
-        </LinearLayout>
+            <TextView
+                android:id="@+id/recyclerDistanceHeader"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:layout_marginLeft="5dp"
+                android:text="Distance:"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/recyclerDistance"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="7"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+        </TableRow>
 
 
-    </LinearLayout>
+    </TableLayout>
+
+
 
 </androidx.cardview.widget.CardView>

@@ -133,8 +133,29 @@ public class maxPuttsSettings extends AppCompatActivity {
                 map.put("Wind Direction LeftRight", windLeftRight);
                 map.put(puttHeader, stscore);
                 map.put(puttHeaderAttempted, strtotalPuttsAttempted);
+                map.put("timestamp",ts);
+                map.put("invertedTS","-" + ts);
+                map.put("gameType","Max Putts");
 
                 databaseReference.child("Max Putts").child(uid).child(ts).updateChildren(map);
+                databaseReference.child("Putting practice data").child(uid).child(ts).updateChildren(map);
+
+                HashMap<String , Object> generalMap = new HashMap<>();
+                map.put("Score", stscore);
+                map.put("Putts total", strtotalPuttsAttempted);
+                map.put("Distance", strPuttsDistance);
+                map.put("Wind Speed", windSpeed);
+                map.put("Location", location);
+                map.put("Wind Direction FrontBack", windFrontBehind);
+                map.put("Wind Direction LeftRight", windLeftRight);
+                map.put(puttHeader, stscore);
+                map.put(puttHeaderAttempted, strtotalPuttsAttempted);
+                map.put("gameType","Max Putts");
+                map.put("timestamp",ts);
+                map.put("invertedTS","-" + ts);
+
+
+                databaseReference.child("Putting practice data").child(uid).child(ts).updateChildren(generalMap);
 
 
                 databaseReference.child("totals").child(uid).child("total putts").setValue(ServerValue.increment(finalscore+1));

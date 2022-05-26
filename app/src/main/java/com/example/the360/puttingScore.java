@@ -2,7 +2,7 @@ package com.example.the360;
 
 public class puttingScore {
 
-    String gameType, scoreHeader, score, location, windHeader, wind;
+    String gameType, scoreHeader, Score, Location, windHeader, wind, Distance;
 
     public String getGameType() {
         return gameType;
@@ -13,11 +13,11 @@ public class puttingScore {
     }
 
     public String getScore() {
-        return score;
+        return Score;
     }
 
     public String getLocation() {
-        return location;
+        return Location;
     }
 
     public String getWindHeader() {
@@ -26,5 +26,9 @@ public class puttingScore {
 
     public String getWind() {
         return wind;
+    }
+
+    public String getDistance() {
+        return Distance;
     }
 }
