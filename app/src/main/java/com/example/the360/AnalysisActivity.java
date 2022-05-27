@@ -125,6 +125,7 @@ public class AnalysisActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(AnalysisActivity.this, MainActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
 
             }
         });
@@ -135,6 +136,7 @@ public class AnalysisActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(AnalysisActivity.this, PuttingActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
 
             }
         });
@@ -145,6 +147,7 @@ public class AnalysisActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(AnalysisActivity.this, DrivingActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
 
             }
         });

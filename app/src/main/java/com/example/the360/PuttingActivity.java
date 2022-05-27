@@ -191,6 +191,7 @@ public class PuttingActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(PuttingActivity.this, MainActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
 
@@ -208,6 +209,7 @@ public class PuttingActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(PuttingActivity.this, DrivingActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
             }
         });
@@ -218,6 +220,7 @@ public class PuttingActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(PuttingActivity.this, AnalysisActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
             }
         });

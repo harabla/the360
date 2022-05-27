@@ -119,6 +119,7 @@ public class DrivingActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(DrivingActivity.this, MainActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
 
@@ -128,6 +129,7 @@ public class DrivingActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(DrivingActivity.this, PuttingActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
 
             }
         });
@@ -146,6 +148,7 @@ public class DrivingActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(DrivingActivity.this, AnalysisActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
             }
         });
