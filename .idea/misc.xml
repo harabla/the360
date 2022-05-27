@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/circle.xml" value="0.2085" />
+        <entry key="app/src/main/res/layout/activity_analysis.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_driving.xml" value="0.14375" />
         <entry key="app/src/main/res/layout/activity_jyly_settings.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_login2.xml" value="0.11041666666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22552083333333334" />

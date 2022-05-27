@@ -6,6 +6,53 @@
     android:layout_height="match_parent"
     tools:context=".DrivingActivity">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/drivingSelectionTree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:focusable="true"
+        android:src="@drawable/ic_baseline_arrow_circle_up_24"
+        app:layout_constraintBottom_toTopOf="@+id/tableRow5"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/accuracy"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/circle"
+        android:text="@string/frontPageDrivingAccuracy"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/drivingSelectionTree"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/distance"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/circle"
+        android:text="@string/frontPageDrivingDistance"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/accuracy"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/speed"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/circle"
+        android:text="@string/frontPageDrivingSpeed"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/distance"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <TableRow
         android:id="@+id/topLine"
         android:layout_width="match_parent"
@@ -141,47 +188,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TableRow
-        android:id="@+id/tableRow3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="150dp"
-        app:layout_constraintBottom_toTopOf="@+id/tableRow5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
 
-        <Button
-            android:id="@+id/accuracy"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/circle"
-            android:text="@string/frontPageDrivingAccuracy"
-            android:textColor="#FFFFFF" />
-
-        <Button
-            android:id="@+id/distance"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/circle"
-            android:text="@string/frontPageDrivingDistance"
-            android:textColor="#FFFFFF" />
-
-        <Button
-            android:id="@+id/speed"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/circle"
-            android:text="@string/frontPageDrivingSpeed"
-            android:textColor="#FFFFFF" />
-
-    </TableRow>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

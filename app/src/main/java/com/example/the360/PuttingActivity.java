@@ -30,7 +30,7 @@ import java.util.Map;
 
 public class PuttingActivity extends AppCompatActivity {
 
-    FloatingActionButton puttingSelectionTree, puttingSelectionTreeMP, puttingSelectionTreeRP, puttingSelectionTreeJyly;
+    FloatingActionButton puttingSelectionTree;
 
     Animation rotate_open, rotate_close, from_bottom, to_bottom;
 
@@ -66,11 +66,6 @@ public class PuttingActivity extends AppCompatActivity {
 
 
         getUserProfile();
-
-
-
-
-
 
         //load animations
         rotate_open = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_open_anim);
@@ -137,7 +132,6 @@ public class PuttingActivity extends AppCompatActivity {
                 }
             });
         }
-
 
 
         //tree onclicklisteners

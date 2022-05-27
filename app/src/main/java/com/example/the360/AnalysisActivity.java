@@ -1,15 +1,21 @@
 package com.example.the360;
 
+import static android.view.View.INVISIBLE;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -18,16 +24,25 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Map;
 
 public class AnalysisActivity extends AppCompatActivity {
+
+    FloatingActionButton analysisSelectionTree;
+
+    Animation rotate_open, rotate_close, from_bottom, to_bottom;
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
     String puttsToday;
     Integer toGoal, intPuttsToday;
+
+    boolean isFABOpen;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +71,22 @@ public class AnalysisActivity extends AppCompatActivity {
             fillInHeader(uid);
         }
 
+        //load animations
+        rotate_open = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_open_anim);
+        rotate_close = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_close_anim);
+        from_bottom = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.from_bottom_anim);
+        to_bottom = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.to_bottom_anim);
+
+        //new buttons
+        analysisSelectionTree = (FloatingActionButton) findViewById(R.id.analysisSelectionTree);
+
+        Button roundAnalysis = findViewById(R.id.roundsum);
+        Button inTheBag = findViewById(R.id.inthebag);
+
+        roundAnalysis.setVisibility(INVISIBLE);
+        inTheBag.setVisibility(INVISIBLE);
+
+
         // Nav buttons
 
         Button navMain = findViewById(R.id.navMain);
@@ -63,7 +94,30 @@ public class AnalysisActivity extends AppCompatActivity {
         Button navDriving = findViewById(R.id.navDriving);
         Button navAnalysis = findViewById(R.id.navAnalysis);
 
+
+        //tree onclicklisteners
+        isFABOpen = false;
+
+        analysisSelectionTree.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!isFABOpen) {
+                    roundAnalysis.startAnimation(from_bottom);
+                    inTheBag.startAnimation(from_bottom);
+                    isFABOpen=true;
+
+                } else {
+                    roundAnalysis.startAnimation(to_bottom);
+                    inTheBag.startAnimation(to_bottom);
+                    isFABOpen=false;
+                }
+
+            }
+        });
+
         // navigation buttons
+
+
 
         navMain.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -206,7 +260,7 @@ public class AnalysisActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Why you not logged in brodda?", Toast.LENGTH_SHORT).show();
             Button logout = (Button) findViewById(R.id.logout);
-            logout.setVisibility(View.INVISIBLE);
+            logout.setVisibility(INVISIBLE);
         }
     }
 }
