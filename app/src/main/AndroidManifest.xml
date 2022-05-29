@@ -13,6 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.The360">
         <activity
+            android:name=".stanceManager"
+            android:exported="false"
+            android:theme="@style/PopMe"/>
+        <activity
             android:name=".Randomputts"
             android:exported="false" />
         <activity

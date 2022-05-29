@@ -30,6 +30,8 @@
     <string name="puttDistanceText">Putting Distance</string>
     <string name="missesText">Misses</string>
     <string name="attemptsText">Attempts</string>
+    <string name="frontPagePuttTest">Test your putt</string>
+    <string name="stanceManager">Stance Manager</string>
 
     //// Driving
     <string name="frontPageDrivingHeader">Driving</string>
@@ -99,6 +101,12 @@
     <string name="toggleStance">Stance</string>
     <string name="toggleDistance">Distance</string>
     <string name="toggleTarget">Target</string>
+
+    //stanceSelector strings
+    <string name="popUpStanceSelectorName">Stance</string>
+    <string name="popUpStanceSelectorDisable">Disable</string>
+    <string name="popUpStanceSelectorDelete">Delete</string>
+    <string name="popUpStanceSelectorAddNew">Add New</string>
 
 
 </resources>

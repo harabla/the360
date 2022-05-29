@@ -64,6 +64,30 @@
         app:layout_constraintBottom_toTopOf="@+id/maxputts"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+    <Button
+        android:id="@+id/puttTest"
+        android:background="@drawable/circle"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/frontPagePuttTest"
+        android:textColor="#FFFFFF"
+        android:layout_margin="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/randomPutts"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/stanceManager"
+        android:background="@drawable/circle"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/stanceManager"
+        android:textColor="#FFFFFF"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/tableRow11"
+        app:layout_constraintEnd_toStartOf="@+id/puttingSelectionTree"/>
+
 
 
 

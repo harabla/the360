@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/popup_bg"
+    tools:context=".stanceManager">
+
+
+    <TableRow
+        android:id="@+id/tableRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/popUpStanceSelectorAddNew">
+
+        <TextView
+            android:id="@+id/popUpStanceSelectorName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="@string/popUpStanceSelectorName" />
+
+        <TextView
+            android:id="@+id/popUpStanceSelectorDisable"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/popUpStanceSelectorDisable" />
+
+        <TextView
+            android:id="@+id/popUpStanceSelectorDelete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/popUpStanceSelectorDelete" />
+    </TableRow>
+
+    <Button
+        android:id="@+id/popUpStanceSelectorAddNew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/popUpStanceSelectorAddNew"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewStanceManager"
+        android:layout_width="409dp"
+        android:layout_height="662dp"
+        tools:layout_editor_absoluteY="68dp"
+        app:layout_constraintTop_toBottomOf="@id/tableRow"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

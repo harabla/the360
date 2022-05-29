@@ -80,10 +80,14 @@ public class PuttingActivity extends AppCompatActivity {
         Button maxPuttsSelect = findViewById(R.id.maxputts);
         Button jylySelect = findViewById(R.id.jyly);
         Button randomPuttsSelect = findViewById(R.id.randomPutts);
+        Button stanceManager = findViewById(R.id.stanceManager);
+        Button puttTest = findViewById(R.id.puttTest);
 
         maxPuttsSelect.setVisibility(View.INVISIBLE);
         jylySelect.setVisibility(View.INVISIBLE);
         randomPuttsSelect.setVisibility(View.INVISIBLE);
+        stanceManager.setVisibility(View.INVISIBLE);
+        puttTest.setVisibility(View.INVISIBLE);
 
         // Nav buttons
 
@@ -144,12 +148,16 @@ public class PuttingActivity extends AppCompatActivity {
                     jylySelect.startAnimation(from_bottom);
                     maxPuttsSelect.startAnimation(from_bottom);
                     randomPuttsSelect.startAnimation(from_bottom);
+                    puttTest.startAnimation(from_bottom);
+                    stanceManager.startAnimation(from_bottom);
                     isFABOpen=true;
 
                 } else {
                     jylySelect.startAnimation(to_bottom);
                     maxPuttsSelect.startAnimation(to_bottom);
                     randomPuttsSelect.startAnimation(to_bottom);
+                    puttTest.startAnimation(to_bottom);
+                    stanceManager.startAnimation(to_bottom);
                     isFABOpen=false;
                 }
 
@@ -181,6 +189,14 @@ public class PuttingActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(PuttingActivity.this,JylySettings.class);
                 startActivity(intent);
+            }
+        });
+
+        stanceManager.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent stanceManagerPopup = new Intent(getApplicationContext(), stanceManager.class);
+                startActivity(stanceManagerPopup);
             }
         });
 
